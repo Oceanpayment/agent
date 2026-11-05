@@ -1,128 +1,128 @@
 # Oceanpayment Agent Skill
 
-给 AI 编码代理（Claude Code 等）使用的 Oceanpayment 跨境支付平台技术对接指引。安装本 Skill 后，你的 AI 代理在回答商户注册、沙盒/生产环境、API 密钥、签名验签、预授权、3DS、PCI-DSS、订单管理、退款、争议拒付、订阅、OPCard 虚拟卡、OPCCOUNT 全球账户、Webhook、响应代码，以及 Shopify / 店匠 / Shopline / Wix 等 SaaS 收银台接入问题时，会自动读取内置的 Oceanpayment 官方技术文档作为一手依据，而不是靠猜测。
+A technical integration guide for Oceanpayment's cross-border payment platform, designed for AI coding agents (Claude Code, etc.). Once this Skill is installed, when your AI agent answers questions about merchant onboarding, sandbox/production environments, API keys, signing and signature verification, pre-authorization, 3DS, PCI-DSS, order management, refunds, disputes/chargebacks, subscriptions, OPCard virtual cards, OPCCOUNT global accounts, Webhooks, response codes, and SaaS checkout integrations such as Shopify / Shoplazza / Shopline / Wix, it will automatically read the bundled official Oceanpayment technical documentation as its primary source of truth — instead of guessing.
 
-> 本文档只介绍**如何下载、安装与构建**。Skill 内部的接口细节、签名字段、错误码等完整内容请以安装后的 `SKILL.md` 及 `references/` 文档为准。
+> This document only covers **how to download, install, and build**. For the full details inside the Skill — API specifics, signing fields, error codes, etc. — refer to the installed `SKILL.md` and the `references/` documentation.
 
-## 安装
+## Installation
 
-### 方式一：从 npm 安装（推荐）
+### Option 1: Install from npm (recommended)
 
-发布到 npm registry 后：
+After publishing to the npm registry:
 
 ```bash
 npm install -g @oceanpayment/agent
 oceanpayment-agent install
 ```
 
-### 方式二：从 GitHub 直接安装
+### Option 2: Install directly from GitHub
 
-无需发布到 npm，直接从 GitHub 仓库安装：
+No need to publish to npm — install directly from the GitHub repository:
 
 ```bash
 npm install -g github:Oceanpayment/agent
 oceanpayment-agent install
 ```
 
-### 方式三：一次性运行（不全局安装）
+### Option 3: One-off run (no global install)
 
-不想全局安装时，用 `npx` 直接跑一次：
+If you don't want a global install, run it once with `npx`:
 
 ```bash
 npx @oceanpayment/agent install
 ```
 
-### 安装位置
+### Install location
 
-`oceanpayment-agent install` 默认把 Skill 安装到 `~/.claude/skills/oceanpayment/`（Claude Code 全局 skills 目录）。也可以用选项指定位置：
+`oceanpayment-agent install` installs the Skill to `~/.claude/skills/oceanpayment/` (the Claude Code global skills directory) by default. You can also specify a location with options:
 
 ```bash
-# 安装到当前项目（项目级，仅当前仓库生效）
+# Install to the current project (project-level, effective only for this repository)
 oceanpayment-agent install --local
 
-# 安装到指定目录（其他支持 Agent Skill 的工具）
+# Install to a specific directory (other tools that support Agent Skills)
 oceanpayment-agent install --dir ~/my-agent/skills
 
-# 自定义 skill 目录名
+# Customize the skill directory name
 oceanpayment-agent install --name oceanpayment-dev
 ```
 
-安装完成后，重启或新开一个代理会话即可生效。
+After installation, restart or open a new agent session for it to take effect.
 
-## 使用
+## Usage
 
-安装后直接向你的 AI 代理提问即可，例如：
+Once installed, simply ask your AI agent directly, for example:
 
-- 「Oceanpayment 沙盒环境的请求域名是什么？」
-- 「signValue 签名怎么拼？」
-- 「Shopify 信用卡直连怎么接入？」
+- "What is the request domain for the Oceanpayment sandbox environment?"
+- "How do I construct the signValue signature?"
+- "How do I integrate Shopify direct credit card processing?"
 
-查看已安装 Skill 的元信息：
+View the installed Skill's metadata:
 
 ```bash
 oceanpayment-agent inspect
 ```
 
-查看 CLI 完整用法：
+View the full CLI usage:
 
 ```bash
 oceanpayment-agent --help
 ```
 
-## 从源码构建
+## Build from source
 
-如果你要修改 Skill 内容或重新打包，按下面的流程构建。
+If you want to modify the Skill content or repackage it, follow the steps below.
 
-### 环境要求
+### Requirements
 
 - Node.js ≥ 14
 - npm ≥ 6
 
-### 构建步骤
+### Build steps
 
 ```bash
-# 1. 克隆仓库
+# 1. Clone the repository
 git clone https://github.com/Oceanpayment/agent.git
 cd agent
 
-# 2. 安装依赖（本包零第三方依赖，仅做校验）
+# 2. Install dependencies (this package has zero third-party dependencies; used only for validation)
 npm install
 
-# 3. 构建前校验：检查 SKILL.md、frontmatter、references 是否完整
+# 3. Pre-build validation: check that SKILL.md, frontmatter, and references are complete
 npm run build
 
-# 4. 打包成 npm 包（生成 oceanpayment-agent-<版本>.tgz）
+# 4. Package as an npm package (generates oceanpayment-agent-<version>.tgz)
 npm pack
 ```
 
-### 本地验证打包结果
+### Verify the package locally
 
 ```bash
-# 打包
+# Package
 npm pack
 
-# 全局安装本地 .tgz
+# Install the local .tgz globally
 npm install -g ./oceanpayment-agent-1.0.0.tgz
 
-# 验证 CLI 可用
+# Verify the CLI works
 oceanpayment-agent --version
 oceanpayment-agent inspect
 ```
 
-## 发布
+## Publishing
 
-### 发布到 npm registry
+### Publish to the npm registry
 
 ```bash
 npm login
 npm publish
 ```
 
-发布成功后，商户即可通过 `npm install -g @oceanpayment/agent` 安装。
+After publishing successfully, merchants can install it via `npm install -g @oceanpayment/agent`.
 
-### 发布到 GitHub
+### Publish to GitHub
 
-直接推送到仓库即可，无需额外步骤：
+Just push to the repository — no extra steps needed:
 
 ```bash
 git add .
@@ -130,35 +130,35 @@ git commit -m "release: oceanpayment agent skill v1.0.0"
 git push origin main
 ```
 
-商户可直接从 GitHub 安装：`npm install -g github:Oceanpayment/agent`。
+Merchants can install directly from GitHub: `npm install -g github:Oceanpayment/agent`.
 
-> 若需让 `npm publish` 发布的是 scoped 包 `@oceanpayment/agent`，首次发布可能需要 `npm publish --access public`（scoped 包默认私有）。
+> To publish the scoped package `@oceanpayment/agent` via `npm publish`, the first publish may require `npm publish --access public` (scoped packages are private by default).
 
-## 目录结构
+## Directory structure
 
 ```
 agent/
-├── package.json              # npm 包定义（name / version / bin / files）
+├── package.json              # npm package definition (name / version / bin / files)
 ├── bin/
-│   └── oceanpayment-agent.js # CLI 安装脚本（install / inspect）
+│   └── oceanpayment-agent.js # CLI install script (install / inspect)
 ├── scripts/
-│   └── verify.js             # 构建前校验脚本（npm run build）
+│   └── verify.js             # pre-build validation script (npm run build)
 ├── skills/
 │   └── oceanpayment/
-│       ├── SKILL.md          # Skill 入口（含 name / description 元数据）
-│       └── references/       # Oceanpayment 官方技术文档全量镜像
+│       ├── SKILL.md          # Skill entry (contains name / description metadata)
+│       └── references/       # full mirror of Oceanpayment official technical documentation
 ├── README.md
 └── LICENSE
 ```
 
-## 更新 Skill
+## Updating the Skill
 
-1. 用最新文档替换 `skills/oceanpayment/references/` 下的对应文件，必要时同步更新 `SKILL.md`。
-2. 在 `package.json` 中递增 `version`。
-3. 执行 `npm run build && npm pack` 校验并打包。
-4. 重新发布（`npm publish` 或 `git push`）。
+1. Replace the corresponding files under `skills/oceanpayment/references/` with the latest documentation, and update `SKILL.md` if necessary.
+2. Bump the `version` in `package.json`.
+3. Run `npm run build && npm pack` to validate and package.
+4. Republish (`npm publish` or `git push`).
 
-已安装的商户用同样的安装命令重新安装即可获得新版本（`npm install -g @oceanpayment/agent@latest` 后再次运行 `oceanpayment-agent install`，可加 `--force` 覆盖旧文件）。
+Merchants who have already installed it can reinstall with the same command to get the new version (run `npm install -g @oceanpayment/agent@latest`, then run `oceanpayment-agent install` again; add `--force` to overwrite old files).
 
 ## License
 
