@@ -1,0 +1,71 @@
+---
+id: new-payee-account
+title: "New Payee Account"
+description: "通过接口新增代付账户，请求字段见API文档具体描述，会返回结果描述及状态码。"
+sidebar_label: "新增代付账户"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vt9PG0cQ/lfQPDXojEkf742gPkSVsJWQvjgWWt8N9oX7ld09iGWddKQNQZTWlXAhIREiRW1VqQ1BTTGJTfhfUt/aeeJfqPbODodN7JRGvRdbezP7zXzzzcxVgJMiAzUH2cy1zBxDumhoOOeSMuJcgdgLkFdAR6ZRw+WGY4MK74LtzslD8f3PYXVPbL4If9ppNfZajUedl7+I1fppc72zXxcH98M/tsTzvzq/Lk9lr4vNh+LZXvig3jreENVq5+TFaXO91dzunNTCJzvtxobYeRqfh9W19tqhCJbbu8t/B/dBAcdFSiT0dR1UAAVcQomFHKkMuwI2sRBUmHZsjjZPzZZdBAUMGWkJiY4U+hMgrmsaWnRn+g5zbFCA4l3PoKiDyqmHCjCthBYBtQJc3qcC49Swi+D7ynvEjKtpjmfz1IwzAjCTnZ7O3JqZDav1j8EybI5FpOfAviKpaUcflVn444pYrYe1/dZREAbN0+Z6u3bgaEhsl5QttLmo/tB68+SyQdw0ivaoCNZ2w/2VMGhektRZw0LGieWOwBFbh++2XorVP/8VTj42RsavOXpZWmixbOTfAVmolcGrnMId1LhUIZXC5AYy+ZaihobLe5KYcQbR+zMYHxe1Q/H7G7H5KqGP8fHb9LY99jaovQ1q4fFG+6AR7nwrHu33bOIua29/I7YOw+Cx0jr6rvP1cevodfu315LJBBu5C8LK+35sxFzHZnHwn09Oyp8+zX4Jyqdix2LF0XzE/Q++RNXxAiX2O8Rjo9XYa+8uS9Kkq074hfH0iXTlQfj8Ffjxo4Ccer1x4lFTqo5zl6nptFZCbcHxeIpNJNtoQnOstEaoniKukV68ClJZFvKSI2eU67CIA8JLoEJ63rP1VNcxTbozg+g6KCCJvHEmyC/uEcs18QOCei9j2RnzkcJk1HFKVycmJyZBAW5wMxpO2alYLwPJS38ZoUWiGnb7bgaXxrJy6I9NxYj9folW+b83QLeYHO/xtGsSI6p0VKdKl+QcJEkGBZI05xUoyYqoOahUCoThLWr6vjy+6yEtg5rLK7BIqEEKkrpc3ld6U0cKQjeYfKGDOk9MhkNo+exGt/WujJ2f+BcmsIDlgSWySEwP4xpdEvjjN8CQoM6WzScIKLEQhkB2V8t/x0suhiF4yT1zDjR+3fc10bMYGIJnHlOahi4fapucEdnMTdmahe4asqKRB5QsyX1GluIvHSdKNV4w8qwCJrGLHilK2/hO+fwDR4bhVg==
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"新增代付账户"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/fund-payment/account-add"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+通过接口新增代付账户，请求字段见API文档具体描述，会返回结果描述及状态码。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"integer"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"integer"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"receiptOpccountNo":{"type":"string","description":"**收款方OPCCOUNT号**\r\n ——当类型是OPCCOUNT账户的时候,不能为空"}},"required":["receiptOpccountNo"]}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述"},"code":{"type":"integer","description":"结果代码\r\n"},"data":{"type":"object","description":"内容"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

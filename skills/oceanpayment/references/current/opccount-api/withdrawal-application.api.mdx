@@ -1,0 +1,71 @@
+---
+id: withdrawal-application
+title: "Withdrawal Application"
+description: "用户可以通过提现询价返回的参考汇率自行计算换算后的提现金额，如果符合要求。可以通过提现下单申请接口，发送提现下单请求。接口会返回状态、批次号。"
+sidebar_label: "提现下单申请"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdV1lPG0cc/yponlq0xkfTqN03QKlaRYWIo5VKEBrvTuxN9srMGLAsS2uaAAmHSWuKSihJCKFVlGJQUADhhO8SvAdP+QrV7KzxRbFD81S/7Po//3t+/2MzgMIEAeIImFBoUsZwAqpgVAAyIhJWTKoYOhCBW/jLmd2388Xy0YtTa9U7nnHyS+7ijlfcKB/te8cF+/G6u3rPzk951s/O7oy7OOPNvPSezXvbz9ztFWdhw91esZcW3dV7XPB05tHpxh8fSvP21pSzvua+2rKXZr2tnLM7dWJNNRsqH8zZC8tu4bVX3HcWX9j550w2/+jUytUysFNfA+cpl1YD3x6+cazciZVzHhw6r57Z+f0TawoIwDARhizG72QgAiAAE2KoIYowS0kG6FBDQAS9hk6RTkNDaRMBASgsJUkEZYRBY6agaaqK5OsM3yaGDgSA0d2UgpEMRIpTSABESiINAjEDKNMnAkKxoidANiucWew3JclI6TTUZ7Qw2H+jt7d/uG/Izu9f0tYPMNRryK0Cs5enGQQKxfKBZVulD6V5t7BrSAjqJkxrSKdOfqn87vElfRhUEnorBx4+tYvTtlW6pIkhRUOEQs1sYcdZeXO6sufMvv4oO6OcGRHaY8hpxiFx0LDXJlCImWZVRvw2kijDIGawpAoi7LRalt0cEtdRutmBpiB4ee5t1d4ZyAogrqhqbwpjpEttqPH2tuyFZfsg5/65UJHu1pgXrWU7O7k0L/XOzpv4pt7x3iq8twrOmmVvrpZLT6Ox8tsFZ3nPWd6xf5m/Wn67YO/kneUdZotiqBMoMW3fIER6EGRmvkc0acikHfPOgzn36G9v79B5cOzM3Xd+O7RL+To/eq71nVi5/uGBEys3+G03g0vNlY+cn/uGHNYlpZXXo9kst0FMQyf8gmORCHs0VPV1IHwqBGkk0Q5g8t6xn3eJ9YIqv6JTlDinTNyjX531tfLRc/dpjqU0uDIJjSlya3Onhd+9YtHbf+IdvFTkirwM6bnxNDSC6fv29mFTmLBNXPLS4KOEY7NiPg6plOwz2lVxNks+vq64gmpdEQppirSR9c7OwH1/oAVgDnVEuwKXZpfsh086AmosoNqbu97eiwr1iwr13X178567NA2yHJVoEmqmypN5jb93xNifcaim0BmSqjFxpERq770m4OAu+XMkAySIZZ8nIvB3PaXFEa5T6JN5u64nVhJUQ8YIUjRGFZ87Fol+HYp8FYpdGYpeEaNfirHYTxVZjDSI7zSpHIeqIis03UKFiY0EhtpYkIRIlSLpTb5WjlDzUdJQZYQbyGxs6GiSjkkpTIy6XCQhGdMMjPjoyQY/ARCExyvrSQqrbI5RahIxHJaSSLpjpGiIdNXO5S7J0MIs4hA0lfB4tAlTvhea36GACEyD+C0E0iQQQbjaAsOsB7F+x/rPQHXWBVD591lVjam+SOrplbFSpbYYAGc5ZOP8ll+1LDE8pmhXpCvCdChU9fepG918TTonesGPWYN+Uw3u58ezSDq6q623UbhmyP9vV+SgIVE0ScOmChW/U/rAywQgqft0EACHyShDPKHsNJOJQ4KGsZrNMvLdFMJpII6MCmAcYgXG2QWNjGaFykLGkC0rhB3IQLwFVYIuyPtnA8HA/ryjfhU+1/E7PiDrt+ugshkSLmm4/d34Aqeqa/gncKhmV77AZLB1/3d7tTvzBfZqV/A6o/y44TOrwtG0+1QluiUJmfRC3tredqN/kDWAeLCha/78AhhOsFUfTvBPQMMP1Z+CPi0DVKgnUjDBeLlO9vsHgmxCng==
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"提现下单申请"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/withdrawal/apply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+用户可以通过提现询价返回的参考汇率自行计算换算后的提现金额，如果符合要求。可以通过提现下单申请接口，发送提现下单请求。接口会返回状态、批次号。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"string"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"string"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"withdrawalAccountKey":{"type":"string","description":"提现账户唯一值"},"billCurrency":{"type":"string","description":"账单币种"},"billAmount":{"type":"string","description":"**账单金额**\r\n ——最多传12位整数和6位小数"},"transactionFeesBearingMethods":{"type":"string","description":"**手续费承担方式**\r\n ——BEN、OUR、SHA"}},"required":["withdrawalAccountKey","billCurrency","billAmount","transactionFeesBearingMethods"]}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述"},"code":{"type":"integer","description":"结果代码\r\n"},"data":{"type":"object","description":"内容","properties":{"amount":{"type":"string","description":"提现申请金额\r\n"},"batchNo":{"type":"string","description":"提现批次号"},"billCurrency":{"type":"string","description":"提现币种"},"status":{"type":"integer","description":"**提现状态**\r\n - 1.提现成功 \r\n - 2.提现失败 \r\n - 3.提现待处理"}}}}},"examples":{"Example 2":{"value":{"msg":"string","code":0,"trace_id":"string","data":{"data":[{"card_id":0,"card_number":"string","card_name":"string","card_status":"string","create_time":"2019-08-24T14:15:22Z","card_remark":"string","card_validity_time":"2019-08-24T14:15:22Z","program_value":0,"program_cn_name":"string","program_en_name":"string","holder_name":"string"}],"next_cursor":"string","has_more":true}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

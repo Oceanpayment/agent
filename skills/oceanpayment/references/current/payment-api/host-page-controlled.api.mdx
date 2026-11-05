@@ -1,0 +1,71 @@
+---
+id: host-page-controlled
+title: "Hostpage"
+description: "托管结账 (商户控制重定向)：在该模式下，Oceanpayment返回下单结果数据，不主动跳转支付页面，由商户根据接口返回结果自行控制用户跳转逻辑。"
+sidebar_label: "托管结账(商户控制重定向)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNWltv20YW/isGn1rUTnSzLl7sQzddYIvdbYO6WWCRBgFFjiRa4kW86GYYkB1fFMey3MbxxoqS2K1vm4vloEms2Ez8XzYcUnrSX1gMh5IoibHpFgus4AfzDDnfmTNnzjnzzUwTNJAokRFkhueICUK/+9A43DZO7zdf74189hdekgE9ci0BqCSvyJ+31aqxfqCXjjW12loqw8MqXPsRlo6+pQDJCWSeBZwMD+/ChYOPxVmrq+q8vl7XTh+2tt+0Hv8MD1f00pp2sqM/vP+xONc829Qf1vVaEZ49bxWffizOGodFWH5gVOdbjxb10pq+8Q6qlY/FOWKU4AUgkkjPr2ligiBGCYEUSRbIQJSIiZvTBEeygJggrvGcDDh57Pu8AIhRgkHDSgCSBiIxOjBaUhBSDGX2eTU3ls1mx2K8yI4pYgpwFE8DmhglRJBWGBHQxIQsKmCUkKgEYEliYpqQEcAEIckiw8WJmZlb+GUgyX/i6Tx6ox+NGCUorBtqs2NPSeiF6eG++egUoOQ+LW4SJEXxCoekMhBZhiNTxCghMXHuH2RKQUOOklTyhoikLJATPC0h44k0EG9zChs17YAfKUUUAUfluwKSRT3/gPqOMqkUw8VvxxhRkr9Bpu3JUuSQCLAkk7I9myqKeZtEkkkZfSGIPK1Qne87Twrbe5hMKr2H6yJDAeKW+SwAUWaAZJrPMkLPVgwng7jDJDdf7+mlY1g5/kH8gRsbGTHWX9n9VV8u6rW6vl7XV2b1ypr24RExSuTGJJkXUkw8YSIwyOE8dJ5XfBQ7HlXiWWJmxmb+i5UwTkvG8/rvVyKc9aeTvkjOk+EEwVSiN/FDLjmoBF52eIEaLz/AtXJbXTHWD7ST1dazlWZ9Fr9gVOfxO3px/2NxTnt/ZqwfTP7lS994EC5vwfpiW13RH67qG0v40Ti9rz+Zb6tVa2zW1HzRMc8Xdt/7QgKUIoJrPA3w63plzdg5mRjBvWiNlwh+bV5rPIMv/6UfvmntbcCjD/o9VV/dhe/eao11rVGGjT248FY73TBe7MHKMfxpxfj3ib6l4i6NnRPtwz3t9Bdja7atVu2qf8KsSjbmGfeTPo4d96dNsyZB/mKD9sW9hRetn3axAvDNClzYhWplTDvbNtYPYHkbhzN4tqCpW59QQvREqUDEpyTZqYzHVKKzkB0UcepAkPyFmJwuZLM0FSRmhhbC2Tp89ARHY+1sW5+tG9V54/2PxvPNG9/9DdaO4OMi+orjZYYCl8CNSoUkiPizCYaMRodx9VoZLm/DzQP46Enz6E4Xq+t8ltshB6jpqwet4iysLOP51RpVuLxtLL/Vi7O46QcZIXQCm0sNlWhwPB/lFE+U4cMOGpo2wbkGz6CmbsGi2qwfw8pcs3jH/gJcKxv7R59ZGnyOeusLri5VogDI0HSYTKSTDD2sEp6X5uHPsPwAVo57KN2Y7RLH608k4tlQNJYKCH4Hp+ggGNV5Kz40Zo39MjZDa2kJue+j963NBX1rCS4tfj357UjA5w3h1dVTq5s5XKpFs+F4rpDlgko+70qt1tKPrZ8fWzGjVoQ7+zhcwqOK/uDImHsH11Z92vuy/uCora7Avbm2WvVe8XisFbk3pz+p2XvSGieetrqiNcqtWrG5NwsrP7aKVgRE+gznP5cji8fGBV+CElPjCuW0Gt6Wmq/fNYsLZpwr26G6adUlki9BATriZ+PJzJSTV9uR9vsGhbO1S5hxMkJzsZTMJkJ04HyY1tyhcfjKjiQkeM71gJJ8KAUK0WCUYv38+UjG+ptm/bEdqVNxuMRi5SlSyERYiZH9zPlYzdd7yBkfvYeHb89bF35vMNhbF/11j0utGMYv50AoL3h5H3vBlB4/aaslozb7sTjburPdVu9epNuYb1g7ipFdmywxFUzG/FNZkufzDvmlT7mnq7AxZwciaVoEkuuIzStkOJLKcHGe94QumJ76nnG62MtfHcQCI7hFS/nycmKcLgTiBTZ7sYurG3Yc9zBeL+8N5EJCGAjBC2aXEfCArIpm/ZWVEM4eNbdXmqvHsLKBw5z+pIYfYekI7lS1xjNGQC2lTVjZMF680BpFrfFsoC7pq0Zm+mtyl2MJBmUyKfFBUlBCYHgs2sk+vD+LcyVSx9QMC431g+a9V/rG0mirug7Vol0BhXWLH6HkhCIzMa7ApoRP4esPjlpLFff4aOfhEj/mUzLBghRNSflxh+CLoSb/esM9ON7puDU/l/B6YplUIVnIOORPy/zlB9rpsQsNpAQj/IZMF0kogJ/ifbLi8ThVVW+br/e1k5NepjNxLpvmGDIaypFxhWa8lHwBDE5zJsylclwyz8icEvPFfTnHcGPD6OU4E+ZSCS4blvxMgI0mhaQcPx+ml+BMmEtmt5Tfk8iEpwp5OhR2ijQ2oN+W3UylLpXackJaypAMy8iiz3fBNP6u1IbtdYm8liclX1DyZoKZAENeoJmZ1/AexMRBac11/kzx4UCaSSdFmXdYs32TYstpNrRLpDSeFz1xMpaWoknWKVkPeDROadZGhpeB60SdCUdiDJ3JMzmv4LA6rUJ+Z0n/9QBvOtvqirUT/ddblKVWn+pbx1hiBkMy7h5ckkJhKclmfNFwxiEJ2ZlHzMBgP/JMXL9mPK+PfNY6fdg83PkcS70Txv4pXD4wntdRVyk+zl9iExwJp0lRKAA2luUdSgi809UffjB2TmDtwK6Z1lg2qvMIbuTGd3+zMnXlmcUG2QhZ+NPKJ5kFU2OSiytk3PWKpGMCALKSyE+Nhz+5K8Y6NusvmwdFvF/Ce2NsOn3rnV4+1N9UmvsluHmAX8NFSqs411qw9pF4LL6AsV/u9oQ7aN571ay/bKslwN2+MdlW77bVld9hAkqSLjFnJCWlw+NiLO4FosMeHNYOjJOza5OT+tYxVCv6xpJ2+rZ1/4O+utsjzpbKcHGzz9Gq8/h9axhnC63tU61xkpBlQYLlSvPwEKpFuPO6O9Lm3qLxaKOPD7RT5qtP9drdbq/u7dOxivlDFLIk8JyEF5fP4xkmqL/966cp6hybOp+h7qdnO2C38WvupiMtBbJMwU95BTnnELIwfWS8OoVP7lnruK1We75nhhBrKaOGLu2kzukvd1vFqvF0F/U6TB2fq1WYTPkSftYTCsQLTqzapellZ+b4XB08dCztC4lkRhif4hyCy6XZ5ctTaHIk6C/4fCLn8QuO6bvHkP1WSiycpBSQj5LjATGb+R9SYiAvh7gw4IRkMhFxT4kNkl1u4aZCihQuZMIRkHCCGxhWZwr7paiGXzmBpefayeqINa23MW/4G3J2MBwMsRwfSoajeclNzjZDKynSl5zQuEcIyzIjhXk+4DByxN6Vt3EN0o3l6A9Prgl4mfghyFwWZLIsLVKiU/wob1uz2DHgZYtqJuAhOcYnpUMpp+F0tu9fX9fvFmHtANfUdkDUjcuxxHxUdGoqH0j5/I7lG1puX3/VVlfsK7172grX61qj2FsoHQVQxa649hMmQmYKDCkyoXE65uAn9V3jxXr30AgT+Jirx1485p2AHxbgzryxtthWS62f5/XVkv74jn63rKlVHLC7xb1nwlJ951Xz9W6nJLPiSmkNLj+1D4RU5MT3l/ANqhCIhIE3GA8Fwg6V4uBQ7ElmolnftVpMsdY4+U/x4SSZAv8pbmqNYrP0Ajd3dHZ8vzt4rbHeevzE/xX62PaZz/kz/1f4/e7nA5/5z/ts6Bu7BWkgk0zKtS/EPOF8PDbF0FGadarz+w2Ip61Z39PvLFgUlhnQYKWune7iArHjFyuwdoDm+MUH7EG47MGlsnG62WPFavf6XJlPKQjc/WaBU4JkNJEOjRciUw6UiakC9j64too2Yfu/wMVf9Y13+q8P/keDEBkp6TptKaEQSHr4hDfFOURtvfasVaw2z5bQju6XVX11v7k/D0ubVgW+pUK1ojVO2mrV3vpHWFrUHxz9wUl2xfxZ6t6OkiI6tXV9KBhlIyi/0mTOk/hUjtHv3oflI3PfjkpUkCNZIWXmMatodSQSQpFMNhpPFxKkzzxgATkZcBJ2hZvT+Oi278tRItM5IXfqAd3cwNUQCry8ZJazpJwgJoircVIGWTJ/VQJihqHAVQlw9PciSaO7C0jWuXyioF0HYdb4E1evykCSx/BJ9xXeFp+vUDw7dIo8SXJ0lM+N4O6ImdHB3tx2dB3ziAzPdfu6NUqgyyXf9e6l/BnbuO8OhcdekXr67hT0JhmbtfvYPZvuiWwHxz1ht8zsifprw0F5r5obbOmdMdrUGD6mG27sMY7DbRZNONxgEXvDDd2qYbjJIsQcvjHpqGF591RkuMnkeobF/dI+4n5YjOj0IalJcg9JLfa5Jx/khAdanGxq510HpEPW7Gc1B+RDdrRxegNCTMANCAds11ci20aOqaaeoEv52ERdTqUn65AM3atf6JZZjEdLCsUDvBi9VzxXPOiOFiOj1UZc//Kff//zN98PLVozvPKSzJLmFTDrEhu6eTdyHeEOvD/d26D/X1/Ws1KEDHLyVSFFMuauVcHUDI6tNwkrtlqRFLkf+q8TX2+NEgkUiyduEtPTUVJCgWVmBonTCkA+c/MWiusiQ0aRgW/emhnt3PPrZYGBy4BWGhi+fIeCLv7iS4oCgvyJdxEL0pctrn87iaY0al34Y80ESYhkFt3ZI7P41h8vdOsUUzZt9yoMj37/BTXBavU=
+sidebar_class_name: "post api-method"
+info_path: docs/payment-api/payment
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"托管结账"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/gateway/service/sendTrade"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+## 概述
+托管结账 (商户控制重定向)：在该模式下，Oceanpayment返回下单结果数据，不主动跳转支付页面，由商户根据接口返回结果自行控制用户跳转逻辑。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/x-www-form-urlencoded","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"","content":{"application/json":{"schema":{"type":"object","required":["account","terminal","signValue","backUrl","methods","order_number","order_currency","order_amount","billing_firstName","billing_lastName","billing_email","billing_country","billing_state","productName","productNum","productSku","productPrice"],"properties":{"account":{"type":"integer","description":"账户号\r\n-  由Oceanpayment技术支持提供","x-stoplight":{"id":"0dyou2cm5bugw"}},"terminal":{"type":"integer","description":"终端号\r\n-  由Oceanpayment技术支持提供","x-stoplight":{"id":"8w3qk29x0vnpp"}},"signValue":{"type":"string","description":"交易[安全签名](/docs/payment/sign)，用于验证交易的安全性。使用SHA256加密，明文加密结构：\r\n-   account+terminal+backUrl+order_number+order_currency+order_amount+billing_firstName+billing_lastName+billing_email+secureCode\r\n- 提示: 结构中的各个字段首尾拼接并且不带其他符号和空格","x-stoplight":{"id":"uwf053a2nm53q"}},"backUrl":{"type":"string","x-stoplight":{"id":"ps3zftqzwwdc6"},"description":"返回支付信息的网站URL地址"},"noticeUrl":{"type":"string","x-stoplight":{"id":"bszke93whiabb"},"description":"服务器回调URL地址，用于交易结果推送及其他业务状态推送\t"},"methods":{"type":"string","x-stoplight":{"id":"ub65ybnu0bio8"},"description":"支付方式\r\n- 传值请参考[支付方式名称](/docs/payment/methods/list)"},"order_number":{"type":"string","x-stoplight":{"id":"ceevdd8ahqkid"},"description":"网站订单号"},"order_currency":{"type":"string","x-stoplight":{"id":"13hhgw7bfl4p3"},"description":"订单号的交易币种\r\n- 采用国际标准[ISO 4217代码](/docs/resource/currency)"},"order_amount":{"type":"string","x-stoplight":{"id":"dm8gxzwn6uyy3"},"description":"订单号的交易金额\r\n- 最大支持小数点后2位数，如：1.00\r\n- 如果交易金额为0，不需要发送交易"},"billing_firstName":{"type":"string","x-stoplight":{"id":"gf5p2hcrl5ucb"},"description":"消费者的名"},"billing_lastName":{"type":"string","x-stoplight":{"id":"2hced93mgkvj8"},"description":"消费者的姓"},"billing_email":{"type":"string","x-stoplight":{"id":"5a9dnfltmh7d4"},"description":"消费者的邮箱"},"billing_phone":{"type":"string","x-stoplight":{"id":"ko7lezb6bcm3o"},"description":"消费者的电话"},"billing_country":{"type":"string","x-stoplight":{"id":"mtjapv9msit3i"},"description":"消费者的账单国家\r\n- 采用国际标准[ISO 3166代码](/docs/resource/country-code)"},"billing_state":{"type":"string","x-stoplight":{"id":"ii3txe7yp1o2m"},"description":"消费者的州（省、郡）\r\n- 采用国际标准[ISO 3166-2代码](/docs/resource/state-code)"},"billing_city":{"type":"string","x-stoplight":{"id":"hj6kf3jwaooy6"},"description":"消费者的城市"},"billing_address":{"type":"string","x-stoplight":{"id":"oua89lvngoo07"},"description":"消费者的详细地址"},"billing_zip":{"type":"string","x-stoplight":{"id":"l2yth5dz4gzmw"},"description":"消费者的邮编"},"productName":{"type":"string","x-stoplight":{"id":"66takso6apu7e"},"description":"产品名称，多个产品用英文,隔开"},"productNum":{"type":"string","x-stoplight":{"id":"9cthutifnzmlp"},"description":"产品数量，多个产品用英文,隔开"},"productSku":{"type":"string","x-stoplight":{"id":"f2uv6zsblsy58"},"description":"产品SKU，多个产品用英文,隔开"},"productPrice":{"type":"string","x-stoplight":{"id":"6nh10fvlzkzv3"},"description":"产品单价，多个产品用英文,隔开"},"ship_firstName":{"type":"string","x-stoplight":{"id":"g9hueojo2tu00"},"description":"收货人的名"},"ship_lastName":{"type":"string","x-stoplight":{"id":"iab7xagudi1ct"},"description":"收货人的姓"},"ship_email":{"type":"string","x-stoplight":{"id":"kyitnuf2g2x07"},"description":"收货人的邮箱"},"ship_phone":{"type":"string","x-stoplight":{"id":"w8s3i4mbkpktg"},"description":"收货人的电话"},"ship_country":{"type":"string","x-stoplight":{"id":"l30hv8jzyd78m"},"description":"收货人的账单国家\r\n- 采用国际标准ISO 3166代码"},"ship_state":{"type":"string","x-stoplight":{"id":"xpqsvaimitr22"},"description":"收货人的州（省、郡）\r\n- 采用国际标准ISO 3166-2代码"},"ship_city":{"type":"string","x-stoplight":{"id":"yas26s1v6v4ia"},"description":"收货人的城市\t"},"ship_addr":{"type":"string","x-stoplight":{"id":"hlo84qiqkrto3"},"description":"收货人的详细地址\t"},"ship_zip":{"type":"string","x-stoplight":{"id":"oor0gafqsbkm6"},"description":"收货人的邮编"},"order_notes":{"type":"string","x-stoplight":{"id":"v89fidvyix1pt"},"description":"订单备注信息，返回时则原样返回"},"pages":{"type":"string","x-stoplight":{"id":"ss78skmv2b8ve"},"description":"支付页面终端\r\n- 0:PC端 (默认)\r\n- 1:移动端"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/xml":{"schema":{"type":"object","properties":{"respon":{"type":"string","x-stoplight":{"id":"qs4wiz3c1ptx6"},"description":"respon节点信息"},"account":{"type":"string","x-stoplight":{"id":"8al2h3m074gz6"},"description":"账户号"},"terminal":{"type":"string","x-stoplight":{"id":"0dfq27ravp5jn"},"description":"终端号"},"signValue":{"type":"string","x-stoplight":{"id":"t963z22rn03p2"},"description":"交易[安全签名](/docs/payment/sign)，用于验证交易的安全性。使用SHA256加密，明文加密结构：\r\n- account+terminal+order_number+order_currency+order_amount+order_notes+payment_id+pay_url+pay_results+pay_details+secureCode"},"order_number":{"type":"string","x-stoplight":{"id":"8kcueyba54rwv"},"description":"网站订单号"},"order_currency":{"type":"string","x-stoplight":{"id":"eyt7n8enpkkh9"},"description":"订单号的交易币种"},"order_amount":{"type":"string","x-stoplight":{"id":"j7us8zv89ehh9"},"description":"订单的交易金额"},"order_notes":{"type":"string","x-stoplight":{"id":"6867mno7k8bys"},"description":"订单备注信息"},"payment_id":{"type":"string","x-stoplight":{"id":"pf2cbjjy4l236"},"description":"支付ID，Oceanpayment的支付唯一单号"},"pay_url":{"type":"string","x-stoplight":{"id":"i9avziari75df"},"description":"支付地址，需重定向打开"},"pay_results":{"type":"string","x-stoplight":{"id":"cz498e16g748e"},"description":"该笔请求的结果状态\r\n- 0: 失败\r\n- 1: 成功"},"pay_details":{"type":"string","x-stoplight":{"id":"f08ygfjidbdmt"},"description":"该笔交易的[支付详情](/docs/payment/status#响应代码)"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

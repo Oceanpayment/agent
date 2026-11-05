@@ -1,0 +1,666 @@
+---
+sidebar_position: 1
+sidebar_label: 嵌入式
+description: 通过Oceanpayment SDK将支付表单直接嵌入到您的checkout页面中。用户无需跳转即可完成支付，完美保持品牌一致性。
+---
+
+# 
+import { FaCode, FaCloudDownloadAlt, FaServer } from 'react-icons/fa';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 概述
+通过Oceanpayment SDK将支付表单直接嵌入到您的checkout页面中。用户无需跳转即可完成支付，完美保持品牌一致性。
+仅支持信用卡，Google Pay，Apple Pay集成。
+
+## 请求示例
+<Tabs> 
+  <TabItem value="Credit Card" label="Credit Card" default>
+```javascript
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Oceanpayment Debit/Credit Card|One-Page Checkout</title>
+  </head>
+  <body>
+    <!--表单提交 -->
+    <form id="payForm">  
+                
+      <label>帐户号：</label>
+      <input class="form-control" type="text" id="account" name="account" value='由Oceanpayment技术支持提供'/>
+      
+      <label>终端号:</label>
+      <input class="form-control" type="text" id="terminal" name="terminal" value='由Oceanpayment技术支持提供'/>
+         
+      <label>signValue</label>
+      <input class="form-control" type="text" id="signValue" name="signValue" value=""/>
+      <label>key</label>
+      <input class="form-control" type="text" id="key" name="key" value='由Oceanpayment技术支持提供'/>
+ 
+      <label>网站订单号：</label>
+      <input class="form-control" type="text" id="order_number" name="order_number" value=""/>
+       
+      <label>交易币种:</label>
+      <input class="form-control" type="text" id="order_currency" name="order_currency" value="USD"/>
+         
+      <label>交易金额:</label>  
+      <input class="form-control" type="text" id="order_amount" name="order_amount"value="0.01"/>
+         
+      <label>返回地址:</label>
+      <input class="form-control" type="text" id="backUrl" name="backUrl" value="">
+          
+      <label>支付方式:</label>
+      <input class="form-control" type="text" id="methods" name="methods" value="Credit Card"/>
+      
+      <label>消费者名:</label>
+      <input class="form-control" type="text" id="billing_lastName" name="billing_lastName" value="test"/>
+       
+      <label>消费者姓:</label>
+      <input class="form-control" type="text" id="billing_firstName" name="billing_firstName" value="test"/>
+                                          
+      <label>消费者邮箱:</label>
+      <input class="form-control" type="text" id="billing_email" name="billing_email" value="20200312@ebanx.com"/>
+                                    
+      <label>消费者国家::</label>
+      <input class="form-control" type="text" id="billing_country" name="billing_country" value="CN"/>
+                                         
+      <label>消费者州/省:</label>
+      <input class="form-control" type="text" id="billing_state" name="billing_state" value="GD"/>
+                                                                      
+      <label>消费者城市:</label>
+      <input class="form-control" type="text" id="billing_city" name="billing_city" value="sz"/>
+                                                                     
+      <label>消费者地址:</label>
+      <input class="form-control" type="text" id="billing_address" name="billing_address" value="test"/>
+                                         
+      <label>消费者邮编:</label>
+      <input class="form-control" type="text" id="billing_zip" name="billing_zip" value="100000"/>
+                                 
+      <label>消费者IP:</label>
+      <input class="form-control" type="text" id="billing_ip" name="billing_ip" value="127.0.0.1"/>
+                                     
+      <label>产品名称:</label>
+      <input class="form-control" type="text" id="productName" name="productName" value="NOKIA N78"/>
+                                   
+      <label>数量:</label>
+      <input class="form-control" type="text" id="productNum" name="productNum" value="2"/>
+                                   
+      <label>SKU:</label>
+      <input class="form-control" type="text" id="productSku" name="productSku" value="SKU026123"/>
+
+      <label>单价:</label>
+      <input class="form-control" type="text" id="productPrice" name="productPrice" value="500"/>
+      
+      <!--加载Oceanpayment支付页面Div-->
+      <div id="oceanpayment-element"></div>        
+      <div class="row">
+        <div class="col-md-7">
+            <div class="form-group">
+                <button id="payNow" type="button" class="btn btn-success footable-show" onclick="pay();">Pay Now</button>
+            </div>
+        </div>
+      </div>   
+    </form>
+  </body>
+</html>
+
+<!-- sha256 Js加密参考，建议使用后端sha256加密，加密结构不能暴露在前端 -->
+<script src="https://developers.oceanpayment.com/assets/img/payment/sha256.js"></script>
+<script src="https://secure.oceanpayment.com/pub/js/jquery/jq.js"></script>
+<!-- 加载oceanpayment JS -->
+<script src="https://secure.oceanpayment.com/pages/js/oceanpayment.js"></script>
+
+<script>
+
+ //订单号随机生成示例
+ var order_number = 'JSCSE-'+Math.floor(Math.random()*Math.pow(10,10));
+ $("#order_number").val(order_number);
+
+ //初始化
+ $(function() {
+      //传true提交沙盒环境，传空提交生产环境。
+      Oceanpayment.init(true,'','');
+  });
+
+  //签名示例，为了加密的安全性，必须在后端进行加密！！！
+  var signValue = sha256_digest($('#account').val()+$('#terminal').val()+$('#order_number').val()
+                  +$('#order_currency').val()+$('#order_amount').val()+$('#billing_firstName').val()
+                  +$('#billing_lastName').val()+$('#billing_email').val()+'SecureCode->由Oceanpayment技术支持提供');
+  $("#signValue").val(signValue);
+    
+  //获取当前页面的backUrl
+  var url = window.parent.location.href;
+  $("#backUrl").val(url);
+
+  //支付返回，backUrl返回地址一定要是当前页面的##同源地址，地址路径完全一致##，才能调用oceanpaymentCallBack方法。
+  var oceanpaymentCallBack = function(data){	
+      if(data.msg){
+        //处理卡信息错误
+        console.log(data.msg);
+      }else{
+        //处理下单返回
+        //没有报错时，接收backUrl返回，解析返回xml
+        //判断以下两个场景：
+        //如果xml->pay_url字段为空，则xml就是返回的交易结果。此时也会触发noticeUrl异步通知。
+        //如果xml->pay_url字段不为空，则需要重定向打开pay_url完成3D校验，此时支付返回结果会再次发送至backUrl，默认用$_POST接收返回。
+        //也会触发noticeUrl异步通知
+        console.log(data);
+      }	
+  }
+
+  //调用支付
+  function pay() {
+    var register = $("#payForm");
+    //Jquery的serialize()方法
+    var formData = register.serializeArray();    
+    Oceanpayment.checkout(transformToJson(formData));
+
+  }
+
+  //整理提交数据的json
+  function transformToJson(formData){
+    var obj={}
+    for (var i in formData) {
+        obj[formData[i].name]=formData[i]['value'];
+    }
+    return obj;
+  }
+
+</script>
+
+``` 
+  </TabItem>
+  <TabItem value="Google Pay" label="Google Pay">
+```javascript
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Oceanpayment Google Pay|One-Page Checkout</title>
+  </head>
+  <body>
+    <!--表单提交 -->
+    <form id="payForm">  
+                
+      <label>帐户号：</label>
+      <input class="form-control" type="text" id="account" name="account" value='由Oceanpayment技术支持提供'/>
+      
+      <label>终端号:</label>
+      <input class="form-control" type="text" id="terminal" name="terminal" value='由Oceanpayment技术支持提供'/>
+         
+      <label>signValue</label>
+      <input class="form-control" type="text" id="signValue" name="signValue" value=""/>
+ 								
+      <label>网站订单号：</label>
+      <input class="form-control" type="text" id="order_number" name="order_number" value=""/>
+       
+      <label>交易币种:</label>
+      <input class="form-control" type="text" id="order_currency" name="order_currency" value="USD"/>
+         
+      <label>交易金额:</label>  
+      <input class="form-control" type="text" id="order_amount" name="order_amount"value="0.01"/>
+         
+      <label>返回地址:</label>
+      <input class="form-control" type="text" id="backUrl" name="backUrl" value=""/>
+          
+      <label>支付方式:</label>
+      <input class="form-control" type="text" id="methods" name="methods" value="GooglePay"/>
+      
+      <label>消费者名:</label>
+      <input class="form-control" type="text" id="billing_lastName" name="billing_lastName" value="test"/>
+       
+      <label>消费者姓:</label>
+      <input class="form-control" type="text" id="billing_firstName" name="billing_firstName" value="test"/>
+                                          
+      <label>消费者邮箱:</label>
+      <input class="form-control" type="text" id="billing_email" name="billing_email" value="20200312@ebanx.com"/>
+                                    
+      <label>消费者国家::</label>
+      <input class="form-control" type="text" id="billing_country" name="billing_country" value="CN"/>
+                                         
+      <label>消费者州/省:</label>
+      <input class="form-control" type="text" id="billing_state" name="billing_state" value="GD"/>
+                                                                      
+      <label>消费者城市:</label>
+      <input class="form-control" type="text" id="billing_city" name="billing_city" value="sz"/>
+                                                                     
+      <label>消费者地址:</label>
+      <input class="form-control" type="text" id="billing_address" name="billing_address" value="test"/>
+                                         
+      <label>消费者邮编:</label>
+      <input class="form-control" type="text" id="billing_zip" name="billing_zip" value="100000"/>
+                                 
+      <label>消费者IP:</label>
+      <input class="form-control" type="text" id="billing_ip" name="billing_ip" value="127.0.0.1"/>
+                                     
+      <label>产品名称:</label>
+      <input class="form-control" type="text" id="productName" name="productName" value="NOKIA N78"/>
+                                   
+      <label>数量:</label>
+      <input class="form-control" type="text" id="productNum" name="productNum" value="2"/>
+                                   
+      <label>SKU:</label>
+      <input class="form-control" type="text" id="productSku" name="productSku" value="SKU026123"/>
+
+      <label>单价:</label>
+      <input class="form-control" type="text" id="productPrice" name="productPrice" value="500"/>
+      
+      <!--加载Google Pay按钮Div-->
+      <div id="oceanpayment-googlepayelement"></div>                      
+    </form>
+  </body>
+</html>
+
+<!-- sha256 Js加密参考，建议使用后端sha256加密，加密结构不能暴露在前端 -->
+<script src="https://developers.oceanpayment.com/assets/img/payment/sha256.js"></script>
+<script src="https://secure.oceanpayment.com/pub/js/jquery/jq.js"></script>
+<!-- 加载oceanpayment JS -->
+<script src="https://secure.oceanpayment.com/pages/js/oceanpayment-googlepay.js"></script>
+
+<script>
+//订单号随机生成示例
+ var order_number = 'JSCSE-'+Math.floor(Math.random()*Math.pow(10,10));
+ $("#order_number").val(order_number);
+  
+//初始化
+ $(function() {
+
+        //传true提交沙盒环境，传空提交生产环境。
+        onePageGooglePay.init(true, {
+            cssUrl: '',/*传入线上css样式文件地址，可以控制按钮大小*/
+            transactionInfo: {
+                orderCurrency:$('#order_currency').val(), /*交易币种*/
+                orderAmount:$('#order_amount').val(),/*交易金额*/
+                billCountry:$('#billing_country').val()/*账单国家*/
+            },
+             buttonStyle: {
+                buttonColor:'',/*按钮颜色*/
+                buttonType:'',/*按钮类型*/
+                buttonRadius:'',/*圆角*/
+                buttonSizeMode:'',/*尺寸样式*/
+                buttonLocale:''/*按钮语言*/
+            }
+        });
+  });
+
+  function validateResults() {
+    onePageGooglePay.validateResults(false);
+  }
+
+  //签名示例，为了加密的安全性，必须在后端进行加密！！！
+  var signValue = sha256_digest($('#account').val()+$('#terminal').val()+$('#order_number').val()
+                  +$('#order_currency').val()+$('#order_amount').val()+$('#billing_firstName').val()
+                  +$('#billing_lastName').val()+$('#billing_email').val()+'SecureCode->由Oceanpayment技术支持提供');
+  $("#signValue").val(signValue);
+    
+  //获取当前页面的backUrl
+  var url = window.parent.location.href;
+  $("#backUrl").val(url);
+
+  //支付返回，backUrl返回地址一定要是当前页面的##同源地址，地址路径完全一致##，才能调用oceanpaymentGooglePayCallBack方法。
+  var oceanpaymentGooglePayCallBack= function(data){	
+     if (data.code == 2) {
+       //唤起按钮，调用支付
+       opGooglepay();
+      }else{
+       /*处理下单返回*/
+       //console.log(data);
+       //接收backUrl返回，解析返回xml
+       //判断以下两个场景：
+       //如果xml->pay_url字段为空，则xml就是返回的交易结果。此时也会触发noticeUrl异步通知。
+       //如果xml->pay_url字段不为空，则需要重定向打开pay_url完成3D校验，此时支付返回结果会再次发送至backUrl，
+       //默认用$_POST接收返回，也会触发noticeUrl异步通知。
+     }
+      
+  }
+
+  //调用支付
+  function opGooglepay() {
+    var register = $("#payForm");
+    //Jquery的serialize()方法
+    var formData = register.serializeArray();    
+    onePageGooglePay.checkout(transformToJson(formData));
+
+  }
+
+  //整理提交数据的json
+  function transformToJson(formData){
+    var obj={}
+    for (var i in formData) {
+        obj[formData[i].name]=formData[i]['value'];
+    }
+    return obj;
+  }
+</script>
+```
+ </TabItem>
+
+ <TabItem value="Apple Pay" label="Apple Pay">
+:::warning[开始之前]
+Apple Pay使用嵌入式集成时，商户必须先为其注册的每个域名[添加Oceanpayment托管域名验证文件](/docs/payment/methods/applepay#嵌入式)。
+:::
+```javascript
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Oceanpayment Apple Pay|One-Page Checkout</title>
+  </head>
+  <body>
+    <!--表单提交 -->
+    <form id="payForm">  
+                
+      <label>帐户号：</label>
+      <input class="form-control" type="text" id="account" name="account" value='由Oceanpayment技术支持提供'/>
+      
+      <label>终端号:</label>
+      <input class="form-control" type="text" id="terminal" name="terminal" value='由Oceanpayment技术支持提供'/>
+         
+      <label>signValue</label>
+      <input class="form-control" type="text" id="signValue" name="signValue" value=""/>
+ 								
+      <label>网站订单号：</label>
+      <input class="form-control" type="text" id="order_number" name="order_number" value=""/>
+       
+      <label>交易币种:</label>
+      <input class="form-control" type="text" id="order_currency" name="order_currency" value="USD"/>
+         
+      <label>交易金额:</label>  
+      <input class="form-control" type="text" id="order_amount" name="order_amount"value="0.01"/>
+         
+      <label>返回地址:</label>
+      <input class="form-control" type="text" id="backUrl" name="backUrl" value="">
+          
+      <label>支付方式:</label>
+      <input class="form-control" type="text" id="methods" name="methods" value="ApplePay"/>
+      
+      <label>消费者名:</label>
+      <input class="form-control" type="text" id="billing_lastName" name="billing_lastName" value="test"/>
+       
+      <label>消费者姓:</label>
+      <input class="form-control" type="text" id="billing_firstName" name="billing_firstName" value="test"/>
+                                          
+      <label>消费者邮箱:</label>
+      <input class="form-control" type="text" id="billing_email" name="billing_email" value="20200312@ebanx.com"/>
+                                    
+      <label>消费者国家::</label>
+      <input class="form-control" type="text" id="billing_country" name="billing_country" value="CN"/>
+                                         
+      <label>消费者州/省:</label>
+      <input class="form-control" type="text" id="billing_state" name="billing_state" value="GD"/>
+                                                                      
+      <label>消费者城市:</label>
+      <input class="form-control" type="text" id="billing_city" name="billing_city" value="sz"/>
+                                                                     
+      <label>消费者地址:</label>
+      <input class="form-control" type="text" id="billing_address" name="billing_address" value="test"/>
+                                         
+      <label>消费者邮编:</label>
+      <input class="form-control" type="text" id="billing_zip" name="billing_zip" value="100000"/>
+                                 
+      <label>消费者IP:</label>
+      <input class="form-control" type="text" id="billing_ip" name="billing_ip" value="127.0.0.1"/>
+                                     
+      <label>产品名称:</label>
+      <input class="form-control" type="text" id="productName" name="productName" value="NOKIA N78"/>
+                                   
+      <label>数量:</label>
+      <input class="form-control" type="text" id="productNum" name="productNum" value="2"/>
+                                   
+      <label>SKU:</label>
+      <input class="form-control" type="text" id="productSku" name="productSku" value="SKU026123"/>
+
+      <label>单价:</label>
+      <input class="form-control" type="text" id="productPrice" name="productPrice" value="500"/>
+      
+      <!--加载Apple Pay按钮Div-->
+      <div id="oceanpayment-applepayelement"></div>                      
+    </form>
+  </body>
+</html>
+
+<!-- sha256 Js加密参考，建议使用后端sha256加密，加密结构不能暴露在前端 -->
+<script src="https://developers.oceanpayment.com/assets/img/payment/sha256.js"></script>
+<script src="https://secure.oceanpayment.com/pub/js/jquery/jq.js"></script>
+<!-- 加载oceanpayment JS -->
+<script src="https://secure.oceanpayment.com/pages/js/oceanpayment-applepay.js"></script>
+
+<script>
+
+ //订单号随机生成示例
+ var order_number = 'JSCSE-'+Math.floor(Math.random()*Math.pow(10,10));
+ $("#order_number").val(order_number);
+  
+ //初始化
+ $(function() {
+
+        //传true提交沙盒环境，传空提交生产环境。
+        onePageApplePay.init(true, {
+            terminal: "99514901",
+            cssUrl: '',/*传入线上css样式文件地址，可以控制按钮大小*/
+            transactionInfo: {
+                orderCurrency: $('#order_currency').val(),/*交易币种*/
+                orderAmount: $('#order_amount').val(),/*交易金额*/
+                billCountry:$('#billing_country').val(),/*账单国家*/
+                orderNumber:$('#order_number').val(),/*订单号*/
+                billAddress:$('#billing_address').val() /*账单地址*/
+            },
+            buttonStyle: {
+                buttonstyle:'', /*按钮颜色*/
+                type:'' /*按钮类型*/
+            }
+        });
+  });
+
+  //签名示例，为了加密的安全性，必须在后端进行加密！！！
+  var signValue = sha256_digest($('#account').val()+$('#terminal').val()+$('#order_number').val()
+                  +$('#order_currency').val()+$('#order_amount').val()+$('#billing_firstName').val()
+                  +$('#billing_lastName').val()+$('#billing_email').val()+'SecureCode->由Oceanpayment技术支持提供');
+  $("#signValue").val(signValue);
+    
+  //获取当前页面的backUrl
+  var url = window.parent.location.href;
+  $("#backUrl").val(url);
+
+  //支付返回，backUrl返回地址一定要是当前页面的##同源地址，地址路径完全一致##，才能调用oceanpaymentApplePayCallBack方法。
+  var oceanpaymentApplePayCallBack = function(data){	
+     if (data.code == 2) {
+       //唤起按钮，调用支付
+       opApplepay();
+      }else{
+       /*处理下单返回*/
+       //console.log(data);
+       //接收backUrl返回，解析返回xml
+       //判断以下两个场景：
+       //如果xml->pay_url字段为空，则xml就是返回的交易结果。此时也会触发noticeUrl异步通知。
+       //如果xml->pay_url字段不为空，则需要重定向打开pay_url完成3D校验，此时支付返回结果会再次发送至backUrl，
+       //默认用$_POST接收返回。也会触发noticeUrl异步通知。
+     }
+      
+  }
+
+  //调用支付
+  function opApplepay() {
+    var register = $("#payForm");
+    //Jquery的serialize()方法
+    var formData = register.serializeArray();    
+    onePageApplePay.checkout(transformToJson(formData));
+
+  }
+
+  //整理提交数据的json
+  function transformToJson(formData){
+    var obj={}
+    for (var i in formData) {
+        obj[formData[i].name]=formData[i]['value'];
+    }
+    return obj;
+  }
+
+</script>
+```
+ </TabItem>
+</Tabs>
+
+
+## 处理返回
+1. 前端监听支付结果事件，后端通过[异步通知](/docs/webhook/payments/checkout)确认最终结果。
+:::warning[注意]
+Oceanpayment将支付返回结果发送至`backUrl`页面，backUrl传值一定要和当前页面的**地址和完整路径完全一致**，才能调用`CallBack()`方法接收支付返回信息。
+:::
+
+<Tabs> 
+  <TabItem value="Credit Card" label="Credit Card" default>
+```javascript
+var oceanpaymentCallBack = function(data){}
+```
+2. 当卡信息校验失败时，`data.msg`会返回报错信息，例如：
+```json
+//卡号输入错误
+{"code":-1, "msg":"Your credit card number is incorrect."}
+```
+3. 当`data.msg`返回为空时，表示卡信息校验通过。在`else`中接收支付返回，判断以下两个场景：
+- 如果xml->`pay_url`字段为空，无3D验证环节，则xml就是返回的支付结果。此时也会触发`noticeUrl`异步通知。
+- 如果xml->`pay_url`字段不为空，有3D验证环节，需要重定向打开pay_url完成3D校验，此时支付返回结果会再次发送至`backUrl`，默认用$_POST接收返回。此时也会触发noticeUrl异步通知。
+```javascript
+var oceanpaymentCallBack = function(data){	
+    if(data.msg){
+       //处理卡信息错误
+       console.log(data.msg);
+    }else{
+       //处理下单返回
+       //没有报错时，接收backUrl返回，解析返回xml
+       console.log(data);
+    }	
+}
+```
+
+ </TabItem>
+ 
+ <TabItem value="Google Pay" label="Google Pay">
+```javascript
+var oceanpaymentGooglePayCallBack = function(data){}
+```
+2. 当`data.code` == 2，表示Google Pay按钮加载成功。在`else`中接收支付返回，判断以下两个场景：
+- 如果xml->`pay_url`字段为空，则xml就是返回的支付结果。此时也会触发`noticeUrl`异步通知。
+- 如果xml->`pay_url`字段不为空，则需要重定向打开pay_url完成3D校验，此时支付返回结果会再次发送至`backUrl`，默认用$_POST接收返回。此时也会触发noticeUrl异步通知。
+```javascript
+var oceanpaymentGooglePayCallBack = function(data){	
+   if (data.code == 2) {
+      //唤起按钮，调用支付
+      opGooglepay();
+   }else{
+      /*处理下单返回*/
+      //console.log(data);
+   }
+}
+```
+3. 当`data.code` == 3，表示用户关闭了Google Pay支付弹窗，数据返回格式：
+```json
+{"code":3,"msg":"","method":"GooglePay"}
+```
+ </TabItem>
+ 
+  <TabItem value="Apple Pay" label="Apple Pay">
+```javascript
+var oceanpaymentApplePayCallBack = function(data){}
+```
+2. 当`data.code` == 2，表示Apple Pay按钮加载成功。在`else`中接收支付返回，判断以下两个场景：
+- 如果xml->`pay_url`字段为空，则xml就是返回的支付结果。此时也会触发`noticeUrl`异步通知。
+- 如果xml->`pay_url`字段不为空，则需要重定向打开pay_url完成3D校验，此时支付返回结果会再次发送至`backUrl`，默认用$_POST接收返回。此时也会触发noticeUrl异步通知。
+```javascript
+var oceanpaymentApplePayCallBack = function(data){	
+   if (data.code == 2) {
+      //唤起按钮，调用支付
+      opApplepay();
+   }else{
+      /*处理下单返回*/
+      //console.log(data);
+   }
+}
+```
+3. 当`data.code` == 3，表示用户关闭了Apple Pay支付弹窗，数据返回格式：
+```json
+{"code":3,"msg":"","method":"ApplePay"}
+```
+ </TabItem>
+</Tabs>
+
+4. 返回示例：
+<Tabs> 
+  <TabItem value="3D场景" label="3D场景" default>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <notice_type>transaction</notice_type>
+    <push_dateTime>2025-09-03 10:21:14</push_dateTime>
+    <account>995149</account>
+    <terminal>99514901</terminal>
+    <signValue>924347D8E9C9BAC2EC91449C70540FF49E0DD5711F03E8A871DCA34CED023AB6</signValue>
+    <methods>Credit Card</methods>
+    <order_number>JSCSE-3128790866</order_number>
+    <card_country>PL</card_country>
+    <order_currency>USD</order_currency>
+    <order_amount>0.01</order_amount>
+    <order_notes></order_notes>
+    <card_number>411111***1111</card_number>
+    <card_type>Visa</card_type>
+    <payment_country></payment_country>
+    <payment_id>250902111334242179639</payment_id>
+    <payment_authType>2</payment_authType>
+    <payment_status>-1</payment_status>
+    <payment_details>80093:3D Authorized Service not completed</payment_details>
+    <payment_solutions></payment_solutions>
+    <payment_risk></payment_risk>
+    <payment_amount></payment_amount>
+    <payment_exchangeRate></payment_exchangeRate>
+    <auth_reason></auth_reason>
+    <auth_code></auth_code>
+    <pay_userId></pay_userId>
+    <pay_url>https://secure.oceanpayment.com:443/gateway/direct/redirect?pay_id=af5e28ee57061f4fd1dd307a7bc56c7289d9041d0b5494195d91b7c5166b6e30</pay_url>
+</response>
+```
+- 商户将用户重定向到`pay_url` ：
+```php
+HTTP/1.2 301 Moved Permanently
+Location: {pay_url}
+``` 
+  </TabItem>
+  <TabItem value="非3D场景" label="非3D场景">
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <notice_type>transaction</notice_type>
+    <push_dateTime>2025-09-03 10:21:14</push_dateTime>
+    <account>995149</account>
+    <terminal>99514901</terminal>
+    <signValue>6E48108837603DF6758BD6CE81C9F8AEE6FDC40D14D056C41EBCC1B28B1F2A0D</signValue>
+    <methods>Credit Card</methods>
+    <order_number>JSCSE-3128790866</order_number>
+    <card_country>PL</card_country>
+    <order_currency>USD</order_currency>
+    <order_amount>0.01</order_amount>
+    <order_notes></order_notes>
+    <card_number>411111***1111</card_number>
+    <card_type>Visa</card_type>
+    <payment_country>-</payment_country>
+    <payment_id>250903102114589130422</payment_id>
+    <payment_authType>0</payment_authType>
+    <payment_status>1</payment_status>
+    <payment_details>80000:Transaction Approved</payment_details>
+    <payment_solutions>None required.</payment_solutions>
+    <payment_risk></payment_risk>
+    <payment_amount></payment_amount>
+    <payment_exchangeRate></payment_exchangeRate>
+    <auth_code></auth_code>
+    <pay_userId></pay_userId>
+</response>
+```
+  </TabItem>
+</Tabs>
+5. 查看[付款状态说明](/docs/payment/status)，您也需要通过`noticeUrl`获取交易的[异步通知](/docs/webhook/payments/checkout)。
+
+## 签名
+查看详细的[签名和验签](/docs/compliance-and-security/sign/payment)功能。
+

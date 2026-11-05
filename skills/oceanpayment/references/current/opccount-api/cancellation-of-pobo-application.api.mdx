@@ -1,0 +1,71 @@
+---
+id: cancellation-of-pobo-application
+title: "Cancellation of POBO Application"
+description: "代付审核通过，用户可以通过取消代付申请接口取消代付申请记录。需要发送批次号取消。"
+sidebar_label: "取消代付申请"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVt9vE0cQ/leseWqjc2wnVkvuLUR96EscQeDFWNF6b20fubs9dvcClmXpgtQ0RRSnwpQKIhoUUfWhSqioCMim+V/Ad3Ge+BeqvbXjHxfZNEWqn+zd2ZlvvvlmxjUQqMxBz8NK7nJuzXQEYSWECRQ0MAjHzHSFSR3QodPa77R+CQ6eh3tvTv0n3ePvP7bvnzR/D7ePgsZhp/VCHQaNn8PX28r4pPmqe3gUPngRNPbj592Dl8G7Rx/8u6e7fve3zaDx06m/Gf7wNvzjedA4UvYf/LugAXUJQxLGtwboABq4iCGbCMIk8ho4yCagwxJ1BHFEcrXqEtDAlKgrBBmEwXgyyHUtE0c+Uzc5dUADRm55JiMG6IJ5RAOOK8RGoNdASH86cMFMpwz1unYWMediTD1HJJfplIC5laWl3LXl1aBx9CmxZB3KhI0Eu46SS9SYllnwaEtWpHnYeeMHfjuq0Z8UE+S4qGoTR4SNnc7fTy8K4qpZdqYhuLcXHG4FfvuCpK6aNuEC2e6UOOHj16eP/wq3X/2rOAVlTLi4TI2qtBj1ChpgpSN5F9OJXov7psWbBAspSyaVKkzC5W0RCVxZpnEQ44nMzKi2ONP+zMwNdsNJvPeb7/3mcMskwu2d4N6vwc6Dj+37nfaT7nEzePps7LV8KwkdIiV/BqZQr6sr7lKHK6Bz6XScB7r++ZiweXk6C2Gj0T1+CXUZ1SDnyHD8wUnrYfhst9PaP9nbVDlrYCAxjAcxhqpxgW59Fxy8jZ5oYApi83gKiiZyB9mupZL4Rn1PZOSPDWR5EUaFNaJQU3lC+PDHzrtdVSnQQDCEyZopJ9eluXQ2nf5qPovIfPZrhBcWMgvoknzZx40RM9Yq1DIIi55kFrLzmfnsXHqu3vtowAnb6E8+j1myQYRwuZ5K4QrB69QTST473PGzmNop6TmJXDO1kYkRArIrbCIqVKJ0KY9KiEQFdEiVPMdI9jylMHIwsZLDZ6CB1MOVQVP1mBrpgbMGlD1dippCJqHiZ2bTs5IFYQorGqsri2panoNUi/DZKBJgf/BHqKxInAlaSshVllgcCHbcTW0g7P9zrfUUJ8gdkXItZEYKjipa67GfhzGmz+O/oEFFlkzPQ61WRJxcY1a9Lo9veYRVQc8XNNhAzERFyW6+UNf6I1VKyDC5vDBALyGLkwlUfXGlN1C+TIyus3MTWSfV2IbstY0s4wUDf/p6mwBqsEk/A6ChbTchZG9v/vd4w1tvQrzhJToSVF2P/VXqW8SG/ODFIsbEFRNth4fISu6q7N5ib8faakwydFsua3RbLVoapRpN1+isBhZyyh4qS1vlU37+Aak9OuI=
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"取消代付申请"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/fund-payment/cancel-fund-payment"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+代付审核通过，用户可以通过取消代付申请接口取消代付申请记录。需要发送批次号取消。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"integer"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"integer"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"batchNo":{"type":"string","description":"**代付批次号**\r\n ——代付申请 成功后，会返回代付批次号\r\n"}},"required":["batchNo"]}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"ok","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述"},"code":{"type":"integer","description":"结果代码\r\n"},"data":{"type":"array","description":"内容\r\n","items":{"type":"object"}}}},"examples":{"Example 1":{"value":{"code":"200","msg":"操作成功","trace_id":"820400634ae347ac9919a80","data":{"card_holder_id":1943134202}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

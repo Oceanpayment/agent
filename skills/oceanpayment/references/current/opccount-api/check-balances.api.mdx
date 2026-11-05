@@ -1,0 +1,72 @@
+---
+id: check-balances
+title: "Check Balances"
+description: "可以通过查询余额接口查看OPCCOUNT金额、可用余额、冻结金额、发卡总额度"
+sidebar_label: "查询余额"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFP21YU/ivoPG2SQ8ImTZPfKC9rKxE0YC80qm7sm+QW+1733utAZFkKLxS1paaCquoGo6Oi29PCtGmtFrr+mMUOedpfmK6dgIOjBNg0v9n3+Pu+c8495/NAoqoAfQWQYTCXyvsVl5oCShqYWBicOJIwCjqEQavTPu41vz37+Cg6PD5rHXU+vOodHUTPjsPgTXR43N1/UlyYmysuzy/1Hj3vHR381dwIg1Z376ckUL1utrvt3dTp83D7h6jZ7h0dhH+8vcfvUdCAOZgjRXrbBB1AAwdxZGOJuZLpAUU2Bh2KTqI3N89AA6Ik1jAyMYfLygeqwuAdaMDxQ5dwbIIuuYs1EEYN2wh0D2TDUcBCckKr4PvaOdc3KDfHTDyBJ3yxGW29C/danffNsHn69+nT7t4vzMCIOqhhYyqjYKfz53c31LBIqnSSgMevw9Zm2Dy9IcUSsbGQyHYm8EQvf++9/C3a+vWGPHOMSkxlbklFjKdCjmMRI74O+QeC0WsxlpJgLOQtZjZUxDA4aGAkUkD3fF9FC4dRgYWK/axQmPBLVp3uZeWw8gNsSHWPubrakiTwtqhmNWcqHQRnH09AA7yObMdSkdHudufDfrS1Ez4+BF/JMXEKiFCJqyMK2W3vRt/vd9pvuq83+oN2galS9TUwkRwp/JKmFyfR9s+ZfAyXc0yNxuSkzufx/Ub3x+0hIViaFrlze375zvzd5a+EZa5WbCLMijCtilKIbDXyV6dIVk2a4vMvCgVfgzUiayZHa8iavSJkGLSiYKf77CSLmZFN3JpdJWWrnjSIVvE1eFI7Mk0y82Wh4A8eDQTm9cFGdLmlJkhKR+j5vFHDxipzZU5Mp5fPtMHsPHMwzSGH5OszGeJFRM0yW59KkEHN62jg68EucGa6hno5Ry5pYGNZY2q/O0zEs4FkDXTI900op0wo/9DFvJErIwtRI1kUFaYKqBJPwGemC9MF0EASGTeiuDCbND4jQ3VCcdkontLBJlIpTd1KGMTln7yLWf//7K9/OyRel3nHQoQq5XEjvH6Vzq06rhJoMFynkgY1VVR9BTyvjARe5pbvq89xHOgrJQ3qiBNUVjVbKfnaYPuqy2QSoQ5M0CvIEnhMST75ur+JP50attiRKaziRsa168hycdKcGxJf3XPHiLqw9/9AUMqDx1D23fzf86W9eAxf2tqHSJPjS448ImLWMLAjU2cZ7xsa64XioprBct937dikgKM1ZeBoLcb2/X8Anl4M+Q==
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询余额"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/account-fund/query-balance"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+可以通过查询余额接口查看OPCCOUNT金额、可用余额、冻结金额、发卡总额度
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"string"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"string"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}},{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"","content":{}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述","example":"操作成功"},"code":{"type":"integer","description":"结果代码\r\n","example":"200"},"data":{"type":"object","description":"数据","properties":{"currency":{"type":"string","description":"OPCCOUNT币种","example":"etdliJINUJNKUHsldkfmisdfsdlf"},"amount":{"type":"string","description":"OPCCOUNT金额","example":3600},"withdrawalAmount":{"type":"string","description":"可提现金额","example":"etdliJINUJNKUHsliuhmgiblv"},"congealAmount":{"type":"string","description":"冻结金额","example":1800}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

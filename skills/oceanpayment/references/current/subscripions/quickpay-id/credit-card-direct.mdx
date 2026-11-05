@@ -1,0 +1,141 @@
+---
+sidebar_position: 2
+sidebar_label: 信用卡直连绑卡
+---
+#
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CollapsibleTable from '@site/src/components/CollapsibleTable';
+import PasswordGate from '@site/src/components/PasswordGate';
+
+<PasswordGate passwordHash="fd270093257f25d8efd50e43488c55386f381ab4e28f31baf82399da6f890093">
+
+## 概述
+信用卡的直连集成绑卡方式，商户系统会在其后端服务器中直接收集并处理持卡人的信用卡信息（如卡号、有效期、CVV 等），适合快捷支付和订阅场景。
+
+:::warning[开始之前]
+开始集成之前，请先阅读Oceanpayment服务器对服务器[信用卡集成合规要求](/docs/payment/server-to-server/integration)。
+:::
+
+## 工作原理
+1. 商户服务器调用直连模式提交[必要参数](/docs/payment/parameter)，其中持卡人信息可以选择使用明文或加密方式传值：
+
+<Tabs> 
+  <TabItem value="信用卡明文" label="信用卡明文" default>
+<div className="table-container">
+|参数名|类型|长度|是否必填|描述|示例|
+| --- | --- | --- | --- | --- | --- |
+|`card_number`|string|13-19|是|信用卡卡号<ul><li>持卡人的信用卡卡号，一般为16位，AE为15位</li></ul>|4111111111111111|
+|`card_year`|string|1-50|是|信用卡有效期-年<ul><li>格式YYYY</li></ul>|2030|
+|`card_month`|string|13-19|是|信用卡有效期-月<ul><li>格式MM</li></ul>|12|
+|`card_secureCode`|string|3-4|是|卡背后的安全码<ul><li>一般为3位，AE为4位</li></ul>|123|
+|`card_name`|string|0-50|否|持卡人姓名|John Smith|
+</div>
+
+2. 签名
+<div className="table-container">
+|参数名|类型|长度|是否必填|描述|示例|
+| --- | --- | --- | --- | --- | --- |
+|`signValue`|string|1-64|是|交易安全签名，用于验证交易的安全性。使用SHA256加密，明文加密结构<ul><li>account+terminal+customer_id+card_number+card_year+card_month+<br/>card_secureCode+billing_firstName+billing_lastName+billing_email+secureCode</li></ul>||
+</div>
+
+```php
+cURL -X POST 'https://test-secure.oceanpayment.com/gateway/directservice/create'
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'account=995149' \
+-d 'terminal=99514901' \
+-d 'signValue=6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b' \
+-d 'customer_id=123456' \
+-d 'order_number=NO12345678' \
+-d 'order_currency=USD' \
+-d 'order_amount=0.01' \
+-d 'methods=Credit Card' \
+-d 'card_number=4111111111111111' \
+-d 'card_year=2030' \
+-d 'card_month=12' \
+-d 'card_secureCode=123' \
+-d 'order_notes=' \
+-d 'billing_firstName=test' \
+-d 'billing_lastName=test' \
+-d 'billing_email=test@gmail.com' \
+-d 'billing_phone=13800138000' \
+-d 'billing_country=US' \
+-d 'billing_state=AL' \
+-d 'billing_city=Washington D.C.' \
+-d 'billing_address=705A big Road' \
+-d 'billing_zip=529012' \
+``` 
+ </TabItem>
+ 
+ <TabItem value="信用卡加密" label="信用卡加密" default>
+ <div className="table-container">
+|参数名|类型|长度|是否必填|描述|示例|
+| --- | --- | --- | --- | --- | --- |
+|`card_data`|string|1-500|是|信用卡卡信息加密串<ul><li>由Oceanpayment提供的加密方式生成</li><li>查看完整的卡信息<a href="/files/op-cse.zip" download>加密示例Demo</a></li></ul>|opcse_0_1_1$ESgIE6St9cSfDbE0+hoh3mz/JNNTS6r2NLNU3d5Pf0SSw2WySdQz|
+</div>
+
+2. 签名
+<div className="table-container">
+|参数名|类型|长度|是否必填|描述|示例|
+| --- | --- | --- | --- | --- | --- |
+|`signValue`|string|1-64|是|交易安全签名，用于验证交易的安全性。使用SHA256加密，明文加密结构<ul><li>account+terminal+customer_id+billing_firstName+billing_lastName+billing_email+secureCode</li></ul>||
+</div>
+
+
+```php
+cURL -X POST 'https://test-secure.oceanpayment.com/gateway/directservice/create'
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'account=995149' \
+-d 'terminal=99514901' \
+-d 'signValue=6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b' \
+-d 'backUrl=https://www.abc.com/back.php' \
+-d 'noticeUrl=https://www.abc.com/notice.php' \
+-d 'order_number=NO12345678' \
+-d 'order_currency=USD' \
+-d 'order_amount=0.01' \
+-d 'methods=Credit Card' \
+-d 'card_data=opcse_0_1_1$ESgIE6St9cSfDbE0+hoh3mz/JNNTS6r2NLNU3d5Pf0SSw2WySdQz' \
+-d 'order_notes=' \
+-d 'billing_firstName=test' \
+-d 'billing_lastName=test' \
+-d 'billing_email=test@gmail.com' \
+-d 'billing_phone=13800138000' \
+-d 'billing_country=US' \
+-d 'billing_state=AL' \
+-d 'billing_city=Washington D.C.' \
+-d 'billing_address=705A big Road' \
+-d 'billing_zip=529012' \
+```  
+ </TabItem>
+</Tabs>
+
+
+## 处理返回
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <account>995149</account>
+  <terminal>99514901</terminal>
+  <signValue>79e63f6995a84934da921bab8a2ba8cb492971a36130a76d58ea18355af7f578</signValue>
+  <customer_id>customer_id20240507174225</customer_id>
+  <order_notes></order_notes>
+  <card_number>411111***1111</card_number>
+  <card_type>VISA</card_type>
+  <card_country>PL</card_country>
+  <quickpay_id>37ca4cff-4e99-4cd6-9869-8d6c7ad259d7</quickpay_id>
+  <quickpay_status>1</quickpay_status>
+  <quickpay_details>1:Success</quickpay_details>
+</response>
+```
+- 查看QuickPay ID的[创建结果](/docs/response-code/payment)。
+- 商户保存返回的卡信息`quickpay_id`，格式为UUID形式，用来发起[快捷/订阅支付](/docs/subscripions/directpay)。
+
+
+## 签名
+绑卡返回签名SHA256校验格式：
+```PHP
+ account+terminal+customer_id+order_notes+card_number+quickpay_id+quickpay_status+secureCode
+```
+
+</PasswordGate>

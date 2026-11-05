@@ -1,0 +1,71 @@
+---
+id: enquiry-withdrawal-account-list
+title: "Enquiry Withdrawal Account List"
+description: "你可以通过接口请求商户号，返回此商户号对应的提现银行账户列表的相关信息。"
+sidebar_label: "查询提现账户列表"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vt9PG0cQ/lfQPLXofLZ5vDdKI6VKBSgh7QOxqvXdBl/w/cjuGmpZJ5koEJSSGCm0VIAQCEiqKMTQIGzADX9MvXfmiX+h2ruzOdsIO7SqX06e2Zlv9pvd+bYADE1RUCZhVmcZjaBZlP0JqaqVMxmkJNAwVYluM90yQYH6X1u8VK6f7V0U1xrnL9zXe7y00yhX3MNn/NcFd7HCS5XL2lLjfIWvb7r7uy0jL5/w0xVv7blbWvZeH1y8OW5sLzWO3grv4mpj+w9v7bm3XuXzn+rn2+5c+e/iM5DARgQZmGEiCiyAiQwMCoxYJsMmi03kbQwS6KKwDEYaJtBZL7LtrK4i8S/+hFomSEDw05xOsAYKIzksAVUz2ECgFICJfApQRnRzChxHaiGO2QEhsVGrB+DY+MjI2MPRCV6q9IOlmwxPYdIG9gOKjVhar52FzK6U69UiL9Yua0veyqGlYmTaKG9gk7ml5frn9dsW8UCfMntV8HKLlxd4sXZLUid0A1OGDLsHjrt6fLF65C5++iKcVLAYU/aNpeXFCjU4NqAUHEc4qW2ZFFPhGkokxKejlfdAigR1nyWl0I1vpZ9glYmjSywbE6YHAAad6i6ya6OlUuP8AByBquFrGtQZ4J29cTc36mc73tbcI/LIFKEaYtfW09G7hXn+8aSrzDQyp4fDu9+73JVj98Nn97eT1mUWh96RIoMkzHUP5/vZvRgMwUj47luRR6f3sWoRrQ8mBgfd38t8+S2v/Ml3X7jbi4ODgpCBhOxuvA8sl7Ul35SUW4sk3zAku6tbFxvFwObTnyMEm2ofRQflBqXz6pz37pWIFzSO+oe8V3xAHV9+5b07aEbetbLiGvQbWyuKOdDKEMT0QVh0BHuHZ3zzl5CzpMznP/BSNXA1aRuS69X39dPTwCqQKEMsR/vC8l4eu8W5MH8sKfOP2+5WtV7db2ZPhCa+e9g42rtqlbu/w6tVcJo/CSgmM009yJGsGBuM2VSJx9UMVqetHItROToHZdUy4ioiWgzZenwmCWI0GJhlLA0UsC3q31bEMqBA/OroxkINjD/NYZKPZXV/nW4+tsSORQnB5pJyQk6ABExnWV8qxocDBeiiQXAm4Azkj45wCt4xxUTLD/zYQh4Ib83A9wFmW5bIGPu/xTjsMsM/s7idRbo/bvwWFEL+om+IJn8gQYTBlAQZwbgyCYVCGlH8kGQdR5j9RaBMpiSYQURHacHmZMqRmrIgGq7pVDg0UB6jLMU3cPPV/VApvh5ol+RrdzEtBlSHys+gbA4HbbslcP8SfUNRV6+B/6CgiGLfABlq/7/Hiyr3DXjRh0AbaODueO5ds2JYVbHNIr4uqW678+NjD8TtTIfvAsMXWyBoVjww0Kyf23H+AXrkjW0=
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询提现账户列表"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/withdrawal-account/query-list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+你可以通过接口请求商户号，返回此商户号对应的提现银行账户列表的相关信息。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"integer"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"integer"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述"},"code":{"type":"integer","description":"结果代码\r\n"},"data":{"type":"object","description":"内容","properties":{"bankAccount":{"type":"string","description":"收款方银行账号"},"withdrawalAccountKey":{"type":"string","description":"提现账户ID"},"isRecord":{"type":"integer","description":"**是否已备案**\r\n 0.未备案，\r\n 1.已备案,\r\n 2.无需备案"},"currency":{"type":"string","description":"账户提现币种"},"bankName":{"type":"string","description":"银行名称"},"bankHolder":{"type":"string","description":"银行开户名称"},"type":{"type":"integer","description":"**银行账户类型**\r\n 1.公司账户，\r\n 2.个人账户"},"status":{"type":"integer","description":"**状态**\r\n -1.审核中，\r\n 0.审核失败，\r\n 1.正常"}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

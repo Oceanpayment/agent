@@ -1,0 +1,71 @@
+---
+id: download-bank-slip
+title: "Download Bank slip"
+description: "代付成功后Oceanpayment财务人员会在后台上传银行水单，用户可以通过下载水单接口请求下载上传的水单文件。需要发送批次号查询。"
+sidebar_label: "下载水单"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v00oU/SvRXfEqpyksvaPlLdCTmgoKmxChiT1NhtozZmbcEkWRQoWgr5Sm6JUPFfSgoD6xQAqIqik0wI/B4zor/gIa2y35qFoob4M3iWau77n3nnOPayBRWYBZgKn8eP4qoRLzGWRhKBpgY2Fx4knCKJgQ7L4Mdh+Hi6tq6ZlaXclbGFEPVV1MZbT1Qi1tBB8+qPuPg866evpKra6o5ptgZynoPO/+sx1tLIdvttS9B187y3trr8LFtmq2gt3NbmM9+nwn2LkbffyYBIQrm6r5Mmq1w7cLyXmSZG/9Vhrw8E6wu/2lsdB92oj+u6ma97uNm+Hf78PXG6rZDp9tRq0XXxoLYADzMEe6+PM2mAAGeIgjF0vMdb81oMjFYMIEoxJTmZ2uehgMILrXCkY25jA4AuR5DrHinLlrglEwgOPrPuHYBlNyHxsgrAp2EZg1kDqfCUJyQstQrxsHiHnPsphPZXaSHQOYn5qYyF+anFbN9o9gafbKmPeBXUbZCWYf15l6cFuTstYKdhqq0Ylpest6KA6bq8GnJyct4iIp0+MqWHquWrdVo3PCoU4TFwuJXO8YnPDRdvfRVrj47qdwikkwFnKc2VUdYSWy0X+HZGHWhlOx0jVsSa1CroUpCRb6toSkVZlkw5iDdY+MpAu4L/WRkSv8Cs0kp3tr76JWO3OwnV87y0FnPfq8pp78O/Ae1ONHNyQ8RkVSx5mxMf0zIL+/9IhBYD63vzQ+d/RspfSEmctZFWzNMl9mxWivWEYt5uYsxO0s8khu7vRQM6AH6mJZYXo1PSbiwSBZARNyMz61s2mmnM3mqcOQnZ1HEvNsiTgOGKCnfOE7H3/eQK7n4L55HnCn5TATD1g3keCfHh0bHQMDJJFOvJFTZ5NFO6RSI67PRTGtqdjOpVVlxhGdzQiHeIMv9gjk93POVIkS35A5z0GE6inEzNdSlgrQy5Ju/hCeigZUNLVmAWq1EhL4EnfqdX183ce8CmahaMAc4gSVNAuFYt3Y31otNZsIfWGDOYMcgY8Y8KkL6SL/kel3zEMbmcXVIROeQ46PE7pPCPzjDnpEUd/N+n8oqMdQj4BMrfnX8XqN9Qi8Xp/uA02uB77G+xFDFttnIFP5i3pzS6k1u3qEJnA0rz0ezSdffxaXH5tdfFYDB9Gyj8o6Nsmpn2+oYsgx
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"下载水单"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/fund-payment/download-water-bill"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+代付成功后Oceanpayment财务人员会在后台上传银行水单，用户可以通过下载水单接口请求下载上传的水单文件。需要发送批次号查询。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"integer"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"integer"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"batchNo":{"type":"string","description":"**代付批次号**\r\n 代付申请 成功后，会返回代付批次号"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"}}}
+>
+  
+</StatusCodes>
+
+
+      

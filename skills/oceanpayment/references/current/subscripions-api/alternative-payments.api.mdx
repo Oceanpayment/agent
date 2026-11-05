@@ -1,0 +1,415 @@
+---
+id: alternative-payments
+title: "本地支付"
+description: "Oceanpayment还支持多种本地支付方式的绑卡/授权能力，以满足不同国家和地区用户的支付习惯。通过本地支付绑卡，用户只需完成一次授权，后续即可进行 快捷支付、重复扣款或订阅扣款，无需重复输入支付信息。"
+sidebar_label: "本地支付"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/subscripions-api/subscription
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"本地支付"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/pg/quickPay/create"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+## 概述
+Oceanpayment还支持多种本地支付方式的绑卡/授权能力，以满足不同国家和地区用户的支付习惯。通过本地支付绑卡，用户只需完成一次授权，后续即可进行 快捷支付、重复扣款或订阅扣款，无需重复输入支付信息。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"schema":{"type":"integer"},"in":"header","name":"account","required":true},{"schema":{"type":"integer"},"in":"header","name":"terminal","required":true},{"schema":{"type":"string"},"in":"header","name":"secureCode","required":true}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body = {
+	{
+		"content": {
+			"application/json": {
+				"schema": {
+					"type": "object",
+					"properties": {
+						"order": {
+							"type": "object",
+							"x-stoplight": {
+								"id": "wci37crrtln49"
+							},
+							"properties": {
+								"currency": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "ezclto4wog9ii"
+									},
+									"description":"交易币种"
+								},
+								"amount": {
+									"type": "number",
+									"x-stoplight": {
+										"id": "ilgrti70x13k7"
+									},
+									"description":"交易金额"
+								},
+								"methods": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "60zbhu8ittodn"
+									},
+									"description":"支付方式，详情查看支持QuickPay/订阅的[支付方式清单](docs/subscripions/methods)"
+								},
+								"redirectUrl": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "525tpnafxesty"
+									},
+									"description":"返回支付信息的网站URL地址"
+								},
+								"notifyUrl": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "5d6v698w2kgq0"
+									},
+									"description":"服务器回调URL地址，用于交易结果推送及其他业务状态推送"
+								},
+								"remark": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "ir2cz081vwc00"
+									},
+									"description":"订单备注"
+								},
+								"ip": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "yfsjknrx0w6kf"
+									},
+									"description":"消费者的ip地址"
+								},
+								"description": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "lzju6e44pocl4"
+									},
+									"description":"描述"
+								}
+							}
+						},
+						"merchant": {
+							"type": "object",
+							"x-stoplight": {
+								"id": "qwbc0rtwudpwq"
+							},
+							"properties": {
+								"referenceId": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "9afz0fvtlq3d0"
+									},
+									"description":"网站订单号"
+								}
+							}
+						},
+						"billing": {
+							"type": "object",
+							"x-stoplight": {
+								"id": "9jx53of37hs07"
+							},
+							"properties": {
+								"firstname": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "3ikv995eikfug"
+									},
+									"description":"消费者的名"
+								},
+								"lastname": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "mz7zijc811xms"
+									},
+									"description":"消费者的姓"
+								},
+								"email": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "hep4lu2sokpzk"
+									},
+									"description":"消费者的邮箱"
+								},
+								"phone": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "loxgjxqe2psp3"
+									},
+									"description":"消费者的电话"
+								},
+								"country": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "nawisnmpncrdl"
+									},
+									"description":"消费者的账单国家，采用国际标准[ISO 3166](/docs/resource/country-code)代码"
+								},
+								"state": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "r7xiwkj2f1jbs"
+									},
+									"description":"消费者的州（省、郡），采用国际标准[ISO 3166-2](/docs/resource/state-code)代码"
+								},
+								"city": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "apm1jhltd733j"
+									},
+									"description":"消费者的城市"
+								},
+								"address": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "hgm43dfrpovue"
+									},
+									"description":"消费者的详细地址"
+								},
+								"zip": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "n3i46yz3lbcv7"
+									},
+									"description":"消费者的邮编"
+								}
+							}
+						},
+						"customer": {
+							"type": "object",
+							"x-stoplight": {
+								"id": "ke9pbx3xlzl8a"
+							},
+							"properties": {
+								"id": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "lx0weeau955lr"
+									},
+									"description":"消费者ID，用于区分唯一的消费者值"
+								}
+							}
+						},
+						"device": {
+							"type": "object",
+							"x-stoplight": {
+								"id": "q7eh5qs1vfs4r"
+							},
+							"properties": {
+								"environment": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "8oql7vq72a5mv"
+									},
+									"description":"设备环境，默认1\r\n- 1: WEB \r\n- 2: Wap \r\n- 3: APP \r\n- 4: MPRO \r\n- 5: 微信浏览器  \r\n- 6: POS机"
+								},
+								"osType": {
+									"type": "string",
+									"x-stoplight": {
+										"id": "w494i57xc3u8g"
+									},
+									"description":"操作系统，默认1\r\n- 1: iOS\r\n- 2: Android\r\n- 3: 其他"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses = {
+	{
+		"200": {
+			"description": "OK",
+			"content": {
+				"application/json": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"msg": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "vexj9gm3u9e22"
+								}
+							},
+							"code": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "xk74ap8ykk4td"
+								}
+							},
+							"data": {
+								"type": "object",
+								"x-stoplight": {
+									"id": "vxa3tels2zd3l"
+								},
+								"properties": {
+									"account": {
+										"type": "string",
+										"x-stoplight": {
+											"id": "8rl2a0rd8rnke"
+										},
+										"description":"账户号"
+									},
+									"terminal": {
+										"type": "string",
+										"x-stoplight": {
+											"id": "cavz7b9jhorij"
+										},
+										"description":"终端号"
+									},
+									"card": {
+										"type": "string",
+										"x-stoplight": {
+											"id": "r2vj4e88zdm2f"
+										}
+										
+									},
+									"order": {
+										"type": "object",
+										"x-stoplight": {
+											"id": "dpxtkintuxryx"
+										},
+										"properties": {
+											"currency": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "mlgbqrmmyj6fp"
+												},
+												"description":"交易币种"
+											},
+											"amount": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "usjji5ns3z3r0"
+												},
+												"description":"交易金额"
+												
+											},
+											"methods": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "mn2dmgl0whdcz"
+												},
+												"description":"支付方式"
+											},
+											"referenceId": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "kn8yd9v262icv"
+												},
+												"description": "网站订单号"
+											},
+											"remark": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "1iqvnce9jmtpd"
+												},
+												"description": "备注"
+											},
+											"description": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "fwg7u6bozl85w"
+												},
+												"description": "描述"
+											}
+										}
+									},
+									"quickPay": {
+										"type": "object",
+										"x-stoplight": {
+											"id": "vq0ot8gesqfek"
+										},
+										"properties": {
+											"id": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "iypxk0f7uue62"
+												},
+												"description": "由Oceanpayment生成的唯一 Quickpay ID，格式为UUID。"
+											},
+											"status": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "upgip8mxlulwp"
+												},
+												"description": "Quickpay ID状态\r\n- 1: 激活\r\n- 0: 未激活"
+											}
+										}
+									},
+									"merchant": {
+										"type": "object",
+										"x-stoplight": {
+											"id": "zwtnhqu6rdvpt"
+										},
+										"properties": {
+											"referenceId": {
+												"type": "string",
+												"x-stoplight": {
+													"id": "wt8emocot3y3u"
+												},
+												"description": "网站订单号"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"headers": {}
+		}
+	}
+} 
+>
+  
+</StatusCodes>
+
+
+      

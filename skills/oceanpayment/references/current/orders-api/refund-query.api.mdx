@@ -1,0 +1,71 @@
+---
+id: refund-query
+title: "Refund Query"
+description: "退款查询用于商户实时获取退款处理状态，包括：退款成功、退款中或退款失败。"
+sidebar_label: "退款查询"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vl9T20YQ/yrMvSJjIIGkfkuTzDTTByikfXGYzlk6bIGkk+9O2MTjGdHyv+ZPE5dSIE3SCZQmIU6nBFzswHdJpBM88RU6J8nYYNI6maleJK32dn/729Xu5oCCqExUk6nYADHgLpe84ra78NSbmzmtFoIHb36P2xPu0ipf33XKB+/sDX5k893KO/sRkAA2EYHi+B0FxACQgAkJ1BFDhIJYPAcMqCMQAzexwZDBInfHTQQkoApvKQQVRIB0AQQ0TU2VfZvRbCSTyUSGMdEjFtGQIWMFKUACBKUtlSAFxBixkASonEI6BLEcYMJBDKgGQ8nQ+DC0NNaiYZSFuqmhlrTz+aEACaLsc6yMC/dyEKd4bDQwQkVouWacODGCZHYuojiAsowtQ0gZIrpqQA1IgKpJ4xuoWQgMScAkgnemIup7CvXrZikjqpFsovZ4d4vP7rtL+/fIPSPS1uYV/+yTETRMOK4jg/F5m2+UeLHECxN8adk5XAcSyEYow6amJlO+A1WkWdO7rtzXdHw9DTM6yOcbgF6C4TILmLIeek0fGaUjXSrIXwTqVWa9F6WPAZpvZKhFED2dvZ9lqWrSjEzlZhDOwTO++tB9NedObXs7h+7ywmm14BW3nYPFk+eF49JEoOCtTQY63P79vf2d8/bIK24PfnGju6fXnX/ilqZPqwW+ushXZoJXr/KQ/zp5Wl0LYwuz116jsJ2gYctQvlWV2pNh6QlE2imSLYJuYgWFJ/nSsvfsINYWWHTKOwLK8qRTfu7u/MxfvTnZWnFfH/Ifqnxx0/17zykXnfKCW95yp/acyor3cstd2ncfFLw/DviTqoj/zHOrDJKe3mHlagqm7qfHcTODJ7bNXx7euXVaLTSmT8AslpyyHXz3qiv1TDvlxXNROweFE3vOKdsN+IIvrZfaWJoxU7s+qmu9zRjdn6b57L739kfvxS/eXxWv8tidnjr5fttbmwzg8TcT/PVuHeE5EO6Dwhlp7qMZvjHn2lWnsnkmPD5aP35a4I83j0u/heGKbG00hasqDaH6l4iXmtigwV/e3dkpbufR930JpA81nayu/XvPabmLXEZrp9ZLZaubZKiFjGZaP77VfEIXSWXTNHVVvaYpV5Lmf3SR/6mHIH1sJJ3uwiNIwaNh4kTqdMRSWCiYmPpcQ5YCMRCliIypMoqmLUTGB/zUi+aOyFhtYlpEE6ExZtJYNMoQZRFfuQM3oO+Qsd7U3gehoSRwti2wBvLSRWMt2uknWLFk8XJmakgCYoYN1Kfd7dqkbKicOlX1TNZlDdzWhQ0tp0lY+89rH/JicRjGwqVgKwDb1dHZ0Sk8qsyf2339fQO3bg80BSVOi1zo0J/E4V4SZKDtK0HMxSMN0/xTNqOwehjKsqipQdX/Sfx85MJqiIOwGoAEGuthSAIpUTWxOMjlEpCir4mWzwuxrwVi8SEJjEGiwoQIOT6Ul2rLlCigUTTevHGNhcQ3bSWiSoITN2QZmewDuqKZiCo4q+v+vsG7QAKJcPHRsSKOEJgR+YOZYBnEPpV+e/FlOaBBI2nBpNAN3IvrH0hsZa0=
+sidebar_class_name: "post api-method"
+info_path: docs/ordermanagement-api/oporder
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"退款查询"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/service/queryRefund"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+## 概述
+退款查询用于商户实时获取退款处理状态，包括：退款成功、退款中或退款失败。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","required":true,"schema":{"type":"string"},"description":"application/x-www-form-urlencoded"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","required":["account","terminal","signValue"],"properties":{"account":{"type":"string","description":"账户号\r\n-  由Oceanpayment技术支持提供","x-stoplight":{"id":"lm13zlmo8qawm"}},"terminal":{"type":"string","x-stoplight":{"id":"ost5s7mjksj1i"},"description":"终端号\r\n-  由Oceanpayment技术支持提供"},"signValue":{"type":"string","x-stoplight":{"id":"5069xsipswcsc"},"description":"交易[安全签名](/docs/compliance-and-security/sign/orders)，用于验证交易的安全性。使用SHA256加密，明文加密结构：\r\n-  account+terminal+refund_id+refund_number+secureCode\r\n-  提示: 结构中的各个字段首尾拼接并且不带其他符号和空格"},"refund_id":{"type":"string","x-stoplight":{"id":"r56fd4hahzqyo"},"description":"退款ID，Oceanpayment的唯一退款编号\r\n-  与refund_number二选一"},"refund_number":{"type":"string","x-stoplight":{"id":"osvqttpl8kml6"},"description":"商户网站系统内部的退款流水号\r\n-  refund_number和refund_id均有值以refund_id进行查询退款结果\r\n-  与refund_id二选一"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/xml":{"schema":{"type":"object","properties":{"account":{"type":"string","x-stoplight":{"id":"0l6scu2rwsuen"},"description":"账户号\r\n-  由Oceanpayment技术支持提供"},"terminal":{"type":"string","x-stoplight":{"id":"hxqsh4i7ld3gp"},"description":"终端号\r\n 由Oceanpayment技术支持提供"},"signValue":{"type":"string","x-stoplight":{"id":"emvjqq1ojedok"}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

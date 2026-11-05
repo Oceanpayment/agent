@@ -1,0 +1,71 @@
+---
+id: check-the-list-of-payee-bank-accounts
+title: "Check the List of Payee Bank Accounts"
+description: "通过接口请求账户号，返回此账户号的代付账户列表的相关信息。"
+sidebar_label: "查询代付账户列表"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vl1PG0cU/Sur+9Raaxvo274BaqUqFbYS0j4QhIbdwd6wX5mZJbEsSyYKBKWkRopbIkAICkmjKIlLQeAEFP5L6lmbp/yFanbXsF4j7NJ0X+y9OzPn3I859xaBoRwFZQKymZHMFMVkTlfxlIMKGE9NI2sWJmXQMFWJ7jDdtkCBs/Ja6/Sx98sLXtlp1Y68vYetg5fe0hGvHH0+WW6dVvn6pvd299zYXHvUON5pHD8PLUurre1XzbVHzfU6X9hvnG5787W/yw9BBtvBBAmU7zVQAGRwEEEmZpgIhkWwkIlBgVHbYthiyfGCg0EGXZDKY6RhAnGuyHEMXfXPTN+ltgUyEHzP1QnWQGHExTJQNY9NBEoRmDhPAcqIbuWgVJLPETOOqtquxZJjdg/ATHZ0NHN7bJxXjvrB0i2Gc5h0gP2IkqO21ssz/uuiCGa11qiXefnk88lys7pnqxhZDiqY2GJeZaXxcf2aDt/Sc1YvAk+2eG2Rl0+uCTGum5gyZDo9cLzVw7PVA29p/1/hTAaLMWUjtlYQK9SgasTfrqpQit1H2dN3scpEERJRl0zHVHydxYWfbKLRbtA48UTCW9loHvzOF/bPqu9ataeJxB1yx5I+laufylVen2/+8RRKgqeKdYe1a2zM7n20Vz303nz0fnsfLbeS/4jzqGNbNKA7NDAgfmJFegPkLxUPk+b64FuptE7/FM6qorK76z++oXn8zNvcaBzvNLfmRdDEVg2xS/nEynJxgb977++JU4246UtHbxqJRHPvmG/+HGYuKQ2kzp4dtraXAykLjYOpdhoCsyDL+gWInhcDG0zxhTe8Uu8AG0o16q8bHz5cQFGGmEv78+bJoVeej3jD5zea1VfSOaD3dofX636iXEKwpRZ6JzcQ9456tonWFx/veY2vvOS7j73tpYjb3urW2UY5MEvnfnsbrztN36T40V+BSeCGuvedbgiW/cCHzLvg40BDqeA96HwReN/Kd/daBy8EgxnX0rIBi+HgMt/AhT6YdLTHtqKH99m/0qItt5ugSwwhlow5VEmn1TxWZ22XJWkqKv4p1TbTKiJaEjl6em4QhCCamOVt0Vkdm/oXGbE8KJAWtJPhxjQKO52h+2uEHNy8ENJvHyDTMXCnEF4UxiVSdi7JQuVnfG0TrgSOD6YGUgMgA9OZ4ffZ7HBwkbpC5CfYpsxEvjq1JwHhvcTyWPpBp0yyZ6SsGFykEWTNSmEKaPysSCv4H2eZMOUMP2Bpx0C6L2F+7oph4CcgGniQoSP0kzLkRZqUCSgWpxHFt4lRKgnzPReTAigTkzLMIaKjaRG6icmS3O6goko0nYoPGigzyKD4ihB8dTNsql9LncPLpR7MioKOzUNzyHBxkKNrAvc/zFxB6mJu+gKEIsPNFZDhmPTf8aJDzhV40ZmpAzT4HBuM2yu62vvFjmFVxQ67cm1UOLKZW+JqTocjlek3cyDovrj76H4wtNu+q35D8m1FMJCVc1FOrA3OFM8/euD7vw==
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询代付账户列表"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/fund-payment/account-list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+通过接口请求账户号，返回此账户号的代付账户列表的相关信息。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"integer"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"string"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"keyWords":{"type":"string","description":"**搜索关键词**\r\n ——币种"},"receiptOpccountNo":{"type":"string","description":"收款方OPCCOUNT号"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述"},"code":{"type":"integer","description":"结果代码\r\n"},"data":{"type":"object","description":"内容\r\n","properties":{"applicationType":{"type":"integer","description":"**类型**\r\n - 0.银行账户\r\n - 1.OPCCOUNT账户"},"type":{"type":"integer","description":"**银行账户类型**\r\n - 1.公司账户\r\n - 2.个人账户"},"status":{"type":"integer","description":"**状态**\r\n - 0.停用 \r\n - 1.正常"},"currency":{"type":"string","description":"代付币种"},"record":{"type":"integer","description":"**是否备案**\r\n - 1.无需备案 \r\n - 2.未备案 \r\n - 3.已备案"},"paymentFiling":{"type":"integer","description":"**代付备案**\r\n - 1.未备案 \r\n - 2.备案通过 \r\n - 3.备案失败"},"fundPaymentAccountKey":{"type":"integer","description":"代付账户唯一值"}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

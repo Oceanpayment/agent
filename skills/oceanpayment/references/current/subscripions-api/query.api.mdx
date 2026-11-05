@@ -1,0 +1,73 @@
+---
+id: query
+title: "Query"
+description: "用于查询当前用户或商户绑定的QuickPay ID信息及状态，确认其是否存在并可用于后续支付操作。"
+sidebar_label: "查询QuickPay ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1V0tz2zYQ/isdnNoZygIpvm+tJ4ecmsbJSfEBBJcPiSQgABRFafTfOyApS5RoR7VTnWxg+X37xu4BKZJKFC5RnAugipMWPRsoBklFzlXOKhSiH+JHhQzEOAiijz7HKETIQJwIUoICoQEOqCIloBA9skpBpWbfWg7IQLlGyIDEINA1MOG8yGmHOV9JpkkEbOpcQIxCJWowkKQZlASFB6Q0XoikEnmVouPROLx+eU07qEYoZXWlJmiu9Brk3sOhQJR5RYqfkrwIvodFAq0FPLIYfspzIXp87oVBqr9Y3Gq6sSwyEO3Dp+9uwhNOKMqiFVDtUi50gqgcpL5lQus7IXZWdokEJCCgovA51lm3m0nFeJGnWUef6zQrg7QhzSbBUevZ2h1jmkuEG+dNI3pynaUqg7asd75GjCEhdaFQaLnYxiYOFo5t+lbg2hhjbCDYkZIXGvdawHGw66Pj8WigEgTNSO+3D5pclQmso8IVzt5Z/BKTWzNogr2HLdfza414NkmBVBa2HGyaLg5sa2H39tBaKlZOh3CKwl7RJl7VtlivFNwqnd+t6wKaRFpYBm3hSK3L0UCbOqdr3ZruVKbi+50LgVpsTbdT5jICeef496rnr7loWlP6buWwUfYg6saRRyx/5rmLYGbHlj2LPOrMXBpblkUXgBOKLn1/1wfH4aeNkJxVstfYwvj/LN8SpCQp3OuVeBODxFvXiWHFxgn29P3x8dPTkz6kugfdiSgqvglcN3Ow2u3HiBjjzvFETRoyXVKBm1bJbsMVniipU7+/Uze+X9iwZXnJq9Qb6xYEjmkH+uylvd8JmpJoWzR1vDe3eTQFik19+mpfnQzLPpD7Bm/dliTBrdklqIzF8l4Na14pD3wriEV2peHhMGAdj325/ecWFRWmyFRCtoHVOmPwrjl5OFj4lo9dE5vY8e2epiRifS/DJokYdfOFVfl1Nz+Mi+fO0FfNdltYCu+rLBi601utf9KPiZ2nVhtEGeX4l/R3ineu760Czoo4emfPbHBhp6SB1BGt95EGLlVimZXJlc2a5NXHRsfTW3TmS0VUfXcWElvRbLUiNo3dYgxv9v/yXLTf8vLuVlMoc5ck7qaOo7W4Sj28wDMTz3TtvedV9EteU1fwrWPb8UecGu/pomz29pYR2by8CX2kJ/NUtTvP2bsycPOhISuoZM6qflZfQ4vC0ZcG2pKihtcQ9OjY17i+Y7J7MojKUIjmPJ132faFtPNNDaJFBpIgtqfFoBaFHmGV4jKcz2kGdM1qNZMPjAKpOGlLqNQDZeXNgtBNrPrt+nqeWj+donMxZI5q5rUxbVyp40+mxqBxuIfcPk3ll+XV1+B9j7me5xOmv9Lu6a00H/ADRgZSueqfzDo6O+HWJUbn/5J0TWvYB/4Z3H7V0l6mgdMON+Sagp2a84LklYbr4nMYwrlEXCfhKaDdnxr72UCZDnu4RIdDRCR8F8XxqI/7+3D5rFNI5CTSRiyfj8Zpa9E5EOdSX8QoTEghr5eUS01//zoMa3/8dt7XJvXuk/gsNCQw6jaqdxFeLG9vMF5IfZxytMm9QTqSG9H291dr90niZgg8f/EnpcDVm7KXRf/l76dvyEDRsDiW3TCHBGn0hkOafvxknbH9O6bPDqggVVp3oyTqMfXvXywDfZk=
+sidebar_class_name: "post api-method"
+info_path: docs/subscripions-api/subscription
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"查询QuickPay ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/pg/quickPay/query"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+## 概述
+用于查询当前用户或商户绑定的QuickPay ID信息及状态，确认其是否存在并可用于后续支付操作。
+
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"schema":{"type":"string"},"in":"header","name":"account","required":true,"description":"account"},{"schema":{"type":"string"},"in":"header","name":"terminal","required":true,"description":"terminal"},{"schema":{"type":"string"},"in":"header","name":"secureCode","required":true,"description":"secureCode"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"order":{"type":"object","required":["referenceId"],"x-stoplight":{"id":"m9gwawqf0by74"},"properties":{"referenceId":{"type":"string","x-stoplight":{"id":"7skhgtheymux8"},"default":260401093541829640000,"example":"260401093541829655068"}}},"merchant":{"type":"object","required":["referenceId"],"x-stoplight":{"id":"nmfekbl6r5z53"},"properties":{"referenceId":{"type":"string","x-stoplight":{"id":"y19w9z702678u"},"example":"test20250116094234"}}},"customer":{"type":"object","x-stoplight":{"id":"4jcwdju4rkjte"},"properties":{"id":{"type":"string","x-stoplight":{"id":"3ewfs20s9yl5s"}}}},"quickpay":{"type":"object","x-stoplight":{"id":"npzx6e9t3v16e"},"required":["id"],"properties":{"id":{"type":"string","x-stoplight":{"id":"8kprwy1s86n5o"},"default":"c6db7a28-7639-4d24-b7c5-6cd222c3e0fc","example":"c6db7a28-7639-4d24-b7c5-6cd222c3e0fc"}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"message":{"type":"string","x-stoplight":{"id":"dqdes0v65dejo"},"example":"SUCCESS"},"code":{"type":"string","x-stoplight":{"id":"rnpq966h50txz"},"example":"000"},"data":{"type":"object","x-stoplight":{"id":"nm96gnfxqpt03"},"properties":{"account":{"type":"string","x-stoplight":{"id":"pz34evoimpng7"},"example":"995149"},"terminal":{"type":"string","x-stoplight":{"id":"gabvlwudz1vib"},"example":"99514901"},"order":{"type":"object","x-stoplight":{"id":"dz9szw0v6yaf9"},"properties":{"methods":{"type":"string","x-stoplight":{"id":"upnt7e829drhb"},"example":"{{methods}}"},"referenceId":{"type":"string","x-stoplight":{"id":"bl1rhtfav92y5"},"example":"250117093828061010584"},"remark":{"type":"string","x-stoplight":{"id":"qfboc6i32n8ug"}},"description":{"type":"string","x-stoplight":{"id":"pnwvvl2t0znh9"}}}},"merchant":{"type":"object","x-stoplight":{"id":"uf4ig2y9bhcp0"},"properties":{"referenceId":{"type":"string","x-stoplight":{"id":"c0x687j9poldb"}}}},"quickpay":{"type":"object","x-stoplight":{"id":"w0l4gaweg5ry7"},"properties":{"id":{"type":"string","x-stoplight":{"id":"stf21n1pt4owf"},"example":"test20250117093730"},"status":{"type":"string","x-stoplight":{"id":"a4tchjja4cd6l"},"example":"1"},"expiryTime":{"type":"string","x-stoplight":{"id":"lt1xff6qudbkr"},"example":"2030-10-01"}}},"customer":{"type":"object","x-stoplight":{"id":"8mpuc6rpv544d"},"properties":{"id":{"type":"string","x-stoplight":{"id":"dzc3mwz4voasw"}}}}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

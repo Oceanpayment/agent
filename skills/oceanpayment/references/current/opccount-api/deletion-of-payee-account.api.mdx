@@ -1,0 +1,71 @@
+---
+id: deletion-of-payee-account
+title: "Deletion of Payee Account"
+description: "通过接口删除代付账户，请求字段见API文档具体描述，会返回结果描述及状态码。"
+sidebar_label: "删除代付账户"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vl1vE0cU/SvRfSrSOjY87lsIfUBI2ILQF2NF490be8nuzDIzG7CslRwkQhRFdSXSpkCFUgXap5IiPkwVl/wYvGvnKX+hursb4tipk6aIfbE1e2fOveeee2aboFlNgVmGUvFycV6hXHIsnPdZA3G+yvgiVAywUVnS8bUjOJiw33o62HsUf/8yam9Hq1v7T170drd7uz8P3v4Wr3YOuuuDnU78+kH0x2b86t3g9+WZ0tX4p0fxr9vRw07v78dxuz3Y+/Ogu97rPh3sbUTPnvd3H8fPf0nXo/Zaf+193Fruby1/aj0AA4SPkhH0VRtMAAN8JpmHGiWl3QTOPAQTZgXXyHVuruEjGOBQpnVkNkoYLYD5vutYyZn5O0pwMEDi3cCRaIOpZYAGKKuOHgOzCZrOM0Fp6fAahKHxGbHoW5YIuM5dF6cAFkuzs8Vb1+eiducsWA7XWEN5DOw7lpsV9mmVRT+uxKudaGOn96EVtboH3fX+xmthIeM+a3jIddz+offx2TkLvunU+GkJrG1FOytRq3tOiDnHQ6WZ55+CE2++3998G6+++U84lTQYlb4s7AZFWKlq6O+YKszm+FGiegctTSKUpEvtoKK3CwG3SynDM6kormHjhI6OljE8OJ+7RoQMFVX+l9MrYZgGKl9wleZxqVCgnxH1XQPjSxXqqdo4sWPNSSYZQkK18Qw0pAbQ293uby3TNpvpE3MZ0drKw+jVX7flbQ5h+hhA/nVoDIF0SUBa+8rM5606Wosi0Dk1PTwQ05bw8haTdo75Tn7pIpBIPNR1QW7jC5VwwHQdTMhTI3LZxjzLpt9GFzUNJnF540he395nnu/iBHkUQhL5gqAQyjot6+J0YboABmhHu4nNlGZS9xgjgKiiDD2W9DAboSuUjyP4lFiYKpGNT2WYo/uH1P+1PT1rrMb7Ou+7zOFUStKvZkZ2qvpDssGAEborBtSpOWYZms0qU3hLumFIy3cDlA0wyxUDlph0WJVYLFdC49BLSBu2o+iFDeYCcxVOYOabG9kkXpg6buMn1rBIfR25GZaYG2DarnMCn93WJyR1dIN8gYSGbH4CZHZh/H+8YbufgDd8exwDTV+PfCIcRoz54dGOGctCX0+MHbaLUvEmTWk1u1y8xP1Asnt0S7F76eeLSEpN3DRZa4LLeC1gNYpNz6TnH8gTx28=
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"删除代付账户"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/fund-payment/account-delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+通过接口删除代付账户，请求字段见API文档具体描述，会返回结果描述及状态码。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"integer"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"string"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"fundPaymentAccountKey":{"type":"integer","description":"代付账户唯一值"}},"required":["fundPaymentAccountKey"]}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述"},"code":{"type":"integer","description":"结果代码"},"data":{"type":"object","description":"内容\r\n"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

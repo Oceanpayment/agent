@@ -1,0 +1,73 @@
+---
+id: cancel
+title: "Cancel"
+description: "取消订阅用于终止用户的自动续费授权。当用户主动取消、付款方式失效、或商户出于业务需要暂停服务时，商户可以直接停用QuickPay ID。"
+sidebar_label: "停用QuickPay ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vk1z2jAQ/SudPbUzJsjGEPCtzfSQUzNNeqIchLyAEttSJDnF4/F/76yNAxiHMOnUR+tp33487W4Jjq8tRHOIpUHhNC9g4UGMVhipnVQZRPDb/M7AA6XRcPp1G0ME4IHmhqfo0JCBEjKeIkRwozKHmRs8FBrBA0kWNshjNNA1zLVOpKhtDh+tIhKDz7k0GEPkTI4eWLHBlENUgiN7EVhnZLaGqvLKtw+7tDvXuBAqz1wPTcevHe4jHA5NKjOevEvyCvwIi0WRG7xRMb7LcwCtFg0Yrfum4oLojrHggWjKR2cn5Yl6HFXLRxSUUm1IIE6ipdPnXIonUlMPcjuwTulErjc1jSQ5FXISTsb+dBsmjwGFvQ9qTohFl4BudbNFoa94njiIggkLmc9mo3HoT4PZJGSMMQ9wy1Od0JUuYDxmk+kbzpnRS7IKAn+b5ExD1X7kpNUqs41HAWP/M6MpWsvX2Bf1Pqr7Xzc33+/vKYGCKn4WzBgjYMzdBfTtmzhrcTYb++GMjL6q+wI88+mGMqTwC9LgNiq25+2W5Q5WVY2WVmgwE3jbK5oDUYyZ71+z2WgaTNnEZz4bT8PGQsrNU+/7PKr3aZuqPEjRiA0/yt0bwZ11tLZ17l1d8kD2sTq0LmCvEV+PajFYx13+TnbrcuFWS1M8yPQdkQVsxAY+G1CRKQCRW6fSSyrdF0BVHby+vqeaTCah84v8WqogbPx0mFmpsmZIPWEB0dFND154kuNbFqhnNmKCCLSytZ/cbSCCoV4P63rc8WIoeCaQur5F89KOxNwk1Lyd0zYaDsUGxZPK3cBeKYE807xIMXNXQqUno7Hu1dQifu779fc2qcfttfa6v51V9fxYKYKRU41t/4pdMfDASdc0jXy5pz51xKvDTnkt73bIt9F21P/a69qlYVc+h1s31AmXGdmr01Lu0jgHTYppE0kNszG+8GBD+Y7mUJZLbvGXSaqKfj/naAqI5guqnZF8SWHMF5XXzknKfSwtHcQQrXhiu2Px0NXPP3ez5sun/YbQ63ijnj1opxyoZ/iHCA/WhTOMB6h/pzzaHc6QHuGOaJvzzqLXIk5m3P7GVyFQu7PYw9d29+P+ATxY7laVtB5oYPgf2nn4n2a6qjrYpnvSvxISnq3zelJCY5O+v8bzpXk=
+sidebar_class_name: "post api-method"
+info_path: docs/subscripions-api/subscription
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"停用QuickPay ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/pg/quickPay/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+## 概述
+用于停用已绑定的QuickPay ID，使其无法继续用于后续支付，同时保留相关记录用于业务查询。
+
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"schema":{"type":"string"},"in":"header","name":"account","required":true,"description":"account"},{"schema":{"type":"string"},"in":"header","name":"terminal","required":true,"description":"terminal"},{"schema":{"type":"string"},"in":"header","name":"secureCode","required":true,"description":"secureCode"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"quickpay":{"type":"object","x-stoplight":{"id":"yi646518x4lj2"},"required":["id"],"properties":{"id":{"type":"string","default":260401093541829640000,"example":"260401093541829655068","x-stoplight":{"id":"r3vlf221xlu0p"}}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"message":{"type":"string","example":"SUCCESS"},"code":{"type":"string","example":"000"},"data":{"type":"object","properties":{"account":{"type":"string","example":"995149"},"terminal":{"type":"string","example":"99514901"},"order":{"type":"object","properties":{"methods":{"type":"string","example":"{{methods}}"},"referenceId":{"type":"string","example":"250117093828061010584"},"remark":{"type":"string"},"description":{"type":"string"}}},"merchant":{"type":"object","properties":{"referenceId":{"type":"string"}}},"quickpay":{"type":"object","properties":{"id":{"type":"string","example":"test20250117093730"},"status":{"type":"string","example":"1"},"expiryTime":{"type":"string","example":"2030-10-01"}}},"customer":{"type":"object","properties":{"id":{"type":"string"}}}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

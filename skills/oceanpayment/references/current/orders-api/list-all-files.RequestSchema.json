@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"multipart/form-data":{"schema":{"type":"object","required":["file","purpose"],"properties":{"file":{"type":"string","x-stoplight":{"id":"6vrwbxyezxatn"}},"purpose":{"type":"string","x-stoplight":{"id":"b82smyk5m3e3f"}}}}}}}}

@@ -1,0 +1,78 @@
+---
+id: opcard
+title: "OPCard"
+description: "**概述**"
+sidebar_label: 介绍
+sidebar_position: 0
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import Heading from "@theme/Heading";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span
+  className={"theme-doc-version-badge badge badge--secondary"}
+  children={"Version: 1.0.0"}
+>
+</span>
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"OPCard"}
+>
+</Heading>
+
+
+
+**概述**
+本文档主要作为参考以指导商户技术和产品人员接入Oceanpayment Card API。
+Oceanpayment Card API向商户提供鉴权接口、卡创建接口和卡管理接口。本文档描述了这些接口的详细接入方法，供商户开发者作为接入参考使用。
+
+**鉴权**
+校验商户身份
+Oceanpayment Card API通过Token验证身份。
+Token生成规则：查看Authorization创建Token接口
+
+**业务流程**
+![Docusaurus logo](/img/opcard/opcard_cn.png) 
+
+**资金入账流程**
+![Docusaurus logo](/img/opcard/recorded_cn.png) 
+
+
+**额度上账流程**
+![Docusaurus logo](/img/opcard/settle_cn.png) 
+
+
+**提额流程**
+![Docusaurus logo](/img/opcard/increase_cn.png) 
+
+**接口规则**
+协议规则
+规则	规则描述
+传输方式	采用HTTPS传输
+提交方式	采用POST方法提交
+数据格式	JSON：以POST方式访问API接口，请求参数json，返回也以JSON返回
+Form-data：以POST方式访问API接口，请求参数Form-data，返回响应内容JSON
+字符编码	采用 UTF-8 字符编码
+签名	签名算法查看Authorization创建Token接口
+**参数规则**
+**语言支持**
+
+接口查询支持英文或者中文。
+
+**货币类型**
+
+货币类型均为字母代码string，例如美元，字母代码为USD，API接口接收的货币类型为代码USD。字母代码采用 ISO4217标准。
+
+**货币单位**
+
+币种金额number数值型，支持两位小数，例如1000.00USD。
+
+
+      

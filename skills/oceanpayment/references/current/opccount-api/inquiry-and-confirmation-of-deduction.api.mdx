@@ -1,0 +1,71 @@
+---
+id: inquiry-and-confirmation-of-deduction
+title: "Inquiry And Confirmation of Deduction"
+description: "代付确认扣款，只能同付款币种扣款。"
+sidebar_label: "代付确认扣款"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVl1vE0cU/SvWfSrROjZ93Lfg9gEhxRGEvhirGs+O7YXdmWVmNmBZlhxK04BCHalGBIjS0FRUqqKkiKohtRv+C/Wunaf8hWp27GRtpzZN2RdbO3fuOffj3LtVkKgkwMzBQvZK9mubSsKLCBPIG2ARgbntSZtRMKHT2um0Nrqv9np7P4ePdsLdo5P2WtD4tffNX8H6Wqe1Ee4eBe+Wu7880ad/1x+AAcwjHCkPVy0wAQzwEEcukYQr0CpQ5BIwIcOoJFQmFyseAQNsBVgmyCIcRnkgz3NsHPlM3RaMggGc3PVtTiwwJfeJAQKXiYvArIJU/kwQktu0BLWacYqY9TBmPpXJeTYFMLuQyWRvzi8GjYOPwVIpLBE+BPYVSmaYNS2y4OlKuHoQNPc77+pBvX3SXus23zBMEPVQxSVUho31ztHLi5K4YZfoNAaPt4P9laDevmBSF22XCIlcbwpO+OyP42e/h6tv/xNOXhsTIa8wq6IssG4b9XesLczquCtWuE2wVF3IVWNKmwh1WkASl+fZOfkbJT4zo2UQPjoMd18FjYOZmVv8Fk18qDc/1Jt9iTTf9vYPEuHqevD4x2D9+5P2Wqf9ove+GbzcGrkNNQMKtuNkfM4JxZXxqMcJaAVqR1pvQxyOWxvquL0dJ9N98VCb9htpgJdQEn79INzaPN6s914vh09+Ct98p16uPu+0t4P9w+DP5ullVepYuXKneRsJIl+raUvhMSp0ij9Pp9XPiLKugfGpauiK0vTshY1G7/1vKlsq81hJcnrNu60fwq3NTmunu708uGoheS6nETmtfBvsHeo7+jFAEL40GH4+d5RGpPSEmUrhMsF3mC+TYjYu+lnM3BRG3Eoiz04tXR5DASUMl8gyUyPWYyJKDpJlMCFV9KmV7HtK2VTVrpLEjBZt7iYtYvk48mKAyvf1M3V9eR+5nkOG1JEebdZTaSq1FyP9qNg0rcuz6dk0GCBt6UQDd2FOz9FzAjAi2i6KKt6fJVc12cQctRIZTTjqjAQrJr6IER/yFRsJF1xY/YpKcl+mPAfZUbmjQlX7Sc1BPKnRpPu3tOYNKKt6mDmoVgtIkJvcqdXU67s+4RUwc3kDlhC3UUHlKJevGYORqfrDsoU6sMAsIkeQCbF+dr0vy0uJ4XV1bjh3SGVsAy4hxye6GBcE/vj1NYHU2ab8BIRi22wCZH8v/n+8+FabgBdfkkOg+njkU2hgMTYbz27MYUw8OdE2PiEWsjeUBgv9HepGUxA4uqeWMbqnP9NYFGo0WaN3VXAQLfmopGy1T/X8A8nRDzs=
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"代付确认扣款"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/fund-payment/inquiry-confirm-deduction"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+代付确认扣款，只能同付款币种扣款。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"integer"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"integer"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"batchNo":{"type":"integer","description":"**代付批次号**\r\n ——代付申请 成功后，会返回代付批次号"},"billCurrency":{"type":"string","description":"**确认代付币种**\r\n ——默认传代付申请的币种paymentCurrency ，如果需要换汇，则传对应的币种"}},"required":["batchNo","billCurrency"]}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述\r\n"},"code":{"type":"integer","description":"结果代码\r\n"},"data":{"type":"object","description":"内容\r\n"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

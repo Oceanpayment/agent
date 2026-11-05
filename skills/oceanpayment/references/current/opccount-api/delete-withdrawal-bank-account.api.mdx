@@ -1,0 +1,71 @@
+---
+id: delete-withdrawal-bank-account
+title: "Delete Withdrawal Bank Account"
+description: "通过接口发送提现银行账户唯一值删除银行账户，会返回结果描述及状态码。"
+sidebar_label: "删除提现账户"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vl1PE0EU/SvkPmmypcXHfYPqgyEBwoc+lMZMdy/twu7OMjMFmqZJMREJIRQDhgiGYFAfBSMBDY38GLvb9om/YGa3pUuLrVbjvrTZuTPn3HvPPbN5ECTNQU3AsiEyOiPLxHxGNI1mbQFJBXTkGjMcYVAbVKgX92tXL72tD27p2C29qhdXvdJ2deu0vnNee7dZO/vorV+4uyeVr0W3WHbXj+pv3oeXrsublfJ+7WrXPTisXu54h2+9Uql2deqWNqob515xtXq0+qP4HBSgDjIiQR/roAIo4BBGLBTIJNc82MRCUCFObYG2iEznHAQFDMkxg0RHBu3UieOYhuafGZ3n1AYFGC5mDYY6qIJlUQGuZdAioOZByPNU4IIZdhoKBeUGcdwJahMZoz0Axyfi8fGZsWm3dNEn1hMSiVO9V2Lu67Vw1a/Lm9Xdz1RDYjskZ6EtvNJ25ftBnxymjLTdi8DGkXuy5hbLfUJMGxZyQSynB463d17fO/PWv/wRTjIIRi5GqJ6TEVogGvm3QxRqvvMomppHTUgNMilLYSCXq615GQ4kMYq5TgLtSbTNiCxEKJnE3acmC4UgjjvU5gH8g1hM/rRpbhSUf5WfxdO90wnmFwoSVcdQvGELTN/RxGDsK5fH1aPVWTZry606EXfyaZPZ2gv307dgT/AowJEtNS0hy0ypHSEcrkajWga1BZoVET4YnoVBjVpRjTA9QhwjujQEUh8WigyVPuNQ7teBiAyoEG31ItJwxKiOJgo5kbKaky1dPVohlmPir3VxI0ip8TkqAyXzILWhwdhgDBQQhjB9k5kYDryjowhyv2RpEb+XjQl66LMaeHqDPDBC7IWBBn77IaEJ+H+G3uitwBURdUxi+I33W5Zv1Dus/Wa9fep+xZMKZGR31ATk8ynCcYaZhYJ8vZhFlgM1kVRgiTCDpGQJE8mC0vQRKQ7d4HJBB3WOmBy7VOTeZGMa7w/cdvA7M1jwe3v7UlgiZhaDXvUJ/PuW3oVU6/b4B4RCFt8FsnFZ/D1e2Oq74IVvjlugwXLb10EzosMUWzuGNQ0d0TU27BcT41NyRFONi8XyLRAYWZY3FFkOvlyon6pvqf67PJjETmdJWsYGZ8rnJ1+/vRE=
+sidebar_class_name: "post api-method"
+info_path: docs/opccount-api/opccount
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"删除提现账户"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/withdrawal-account/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+通过接口发送提现银行账户唯一值删除银行账户，会返回结果描述及状态码。
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/json","required":true,"schema":{"type":"string"}},{"name":"Opccount-No","in":"header","description":"OPCCOUNT号","required":true,"schema":{"type":"string"}},{"name":"Va-Code","in":"header","description":"商户唯一值，由oceanpayment提供","required":true,"schema":{"type":"string"}},{"name":"Sign","in":"header","description":"加密值","required":true,"schema":{"type":"string"}},{"name":"Timestamp","in":"header","description":"时间戳","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"withdrawalAccountKey":{"type":"string","description":"账户唯一值"}},"required":["withdrawalAccountKey"]}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"msg":{"type":"string","description":"描述"},"code":{"type":"integer","description":"结果代码\r\n"},"data":{"type":"object","description":"内容\r\n"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

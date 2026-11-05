@@ -1,0 +1,39 @@
+{
+  "name": "@oceanpayment/agent",
+  "version": "1.0.0",
+  "description": "Oceanpayment 跨境支付平台技术对接 Agent Skill —— 帮助 AI 编码代理准确完成 Oceanpayment 支付/订单/订阅/OPCard/OPCCOUNT 等接口集成。",
+  "keywords": [
+    "oceanpayment",
+    "agent-skill",
+    "claude-skill",
+    "cross-border-payment",
+    "payment-integration",
+    "opcard",
+    "opccount"
+  ],
+  "license": "MIT",
+  "author": "Oceanpayment",
+  "homepage": "https://github.com/Oceanpayment/agent",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Oceanpayment/agent.git"
+  },
+  "bin": {
+    "oceanpayment-agent": "bin/oceanpayment-agent.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "scripts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/verify.js",
+    "pack": "npm run build && npm pack",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

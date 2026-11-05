@@ -1,0 +1,90 @@
+---
+sidebar_position: 1
+sidebar_label: 托管结账(Oceanpayment自动重定向)
+description: 托管结账(Oceanpayment自动重定向)：在该模式下，Oceanpayment自动将用户重定向至支付页面完成支付。
+---
+import { FaCode, FaCloudDownloadAlt, FaServer } from 'react-icons/fa';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# 
+
+## 概述
+托管结账(Oceanpayment自动重定向)：在该模式下，Oceanpayment自动将用户重定向至支付页面完成支付。
+
+
+## 工作原理
+
+  1. 商户前端Form表单调用Hosted Checkout[提交必要参数](/docs/payment/parameter)：
+
+```html
+<form action="https://test-secure.oceanpayment.com/gateway/service/pay" method="post">
+  <input type="hidden" name="account" value="995149" />
+  <input type="hidden" name="terminal" value="99514901" />
+  <input type="hidden" name="order_number" value="NO12345678" />
+  <input type="hidden" name="order_currency" value="USD" />
+  <input type="hidden" name="order_amount" value="0.01" /> 
+  <input type="hidden" name="signValue" value="egh4fjs2f3h4mc5g3j7676vzva53gfd33dfga1458fe2f12343y" />
+  <input type="hidden" name="backUrl" value="http://www.abc.com/result.php" />
+  <input type="hidden" name="noticeUrl" value="http://www.abc.com/notice.php" />
+  <input type="hidden" name="methods" value="Credit Card" />
+  <input type="hidden" name="billing_firstName" value="test" />
+  <input type="hidden" name="billing_lastName" value="test" />
+  <input type="hidden" name="billing_email" value="test@test.com" />
+  <input type="hidden" name="billing_phone" value="0755-123456789" />
+  <input type="hidden" name="billing_country" value="US" />
+  <input type="hidden" name="billing_city" value="Washington D.C." />
+  <input type="hidden" name="billing_address" value="705A big Road" />
+  <input type="hidden" name="billing_zip" value="529012" />
+  <input type="hidden" name="productSku" value="#001" />
+  <input type="hidden" name="productName" value="dress" />
+  <input type="hidden" name="productNum" value="1" />
+  <input type="submit" value="Submit" />
+</form>
+```
+  2. 用户在Oceanpayment页面上选择支付方式并付款；
+  3. 支付完成后，用户被重定向回商户网站。
+
+
+## 处理返回
+在支付结果处理中，
+- 同步返回结果依赖于`backUrl`：
+<Tabs> 
+  <TabItem value="Response" label="Response" default>
+```json
+//表单POST返回：
+Array
+(
+    [response_type] => 0
+    [account] => 995149
+    [terminal] => 99514901
+    [signValue] => F03C3D5154FC2672C5EC05BAD3DDDF0892617CC1517517DCD37E6499AA896D73
+    [methods] => Credit Card
+    [order_number] => NO12345678
+    [order_currency] => USD
+    [order_amount] => 0.01
+    [order_notes] => 
+    [card_number] => 
+    [card_type] => null
+    [payment_country] => US
+    [payment_id] => 221214134817000529042
+    [payment_Method] => Credit Card
+    [payment_authType] => 2
+    [payment_status] => 1
+    [payment_details] => 80000:Transaction Approved
+    [payment_solutions] => None required.
+    [payment_risk] => 
+    [payment_amount] => null
+    [payment_exchangeRate] => null
+    [pay_userId] => null
+    [pay_barCode] => 
+    [payment_bankInfo] => 
+)
+```  
+  </TabItem>
+</Tabs>
+- 您也需要通过`noticeUrl`获取交易的[异步通知](/docs/webhook/payments/checkout)。
+- 查看[付款状态说明](/docs/payment/status)。
+
+## 签名
+在托管结账中，以上两种集成方式`SignValue`的签名格式是不相同的，查看详细的[签名和验签](/docs/compliance-and-security/sign/payment)功能。

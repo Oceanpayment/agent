@@ -1,0 +1,257 @@
+---
+id: directpay
+title: "Directpay"
+description: "发起扣款是指在用户已完成绑卡或授权的前提下，商户主动向用户发起的一次资金扣取操作。该操作常用于 订阅扣款、周期性扣款、快捷支付 等场景。"
+sidebar_label: "发起扣款"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/subscripions-api/subscription
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Directpay"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/gateway/direct/pay"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+## 概述
+1. 发起扣款是指在用户已完成绑卡或授权的前提下，商户主动向用户发起的一次资金扣取操作。该操作常用于订阅扣款、周期性扣款、快捷支付等场景。
+2. 在扣款过程中，系统会基于已绑定的支付凭证（如`quickpay_id`等）向Oceanpayment发起扣款请求，并返回对应的交易结果。
+
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Content-Type","in":"header","description":"application/x-www-form-urlencoded","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"","content":{"application/json":{"schema":{"type":"object","required":["account","terminal","signValue","backUrl","methods","order_number","order_currency","order_amount\t","billing_firstName","billing_lastName","billing_email","billing_country","billing_state","billing_ip","productName","productNum","productSku","productPrice"],"properties":{"account":{"type":"integer","description":"账户号\r\n-  由Oceanpayment技术支持提供","x-stoplight":{"id":"0dyou2cm5bugw"}},"terminal":{"type":"integer","description":"终端号\r\n-  由Oceanpayment技术支持提供","x-stoplight":{"id":"8w3qk29x0vnpp"}},"signValue":{"type":"string","description":"交易安全签名，用于验证交易的安全性。使用SHA256加密，明文加密结构：\r\n-  account+terminal+order_number+order_currency+order_amount+quickpay_id+billing_firstName+billing_lastName+billing_email+secureCode\r\n- 提示: 结构中的各个字段首尾拼接并且不带其他符号和空格","x-stoplight":{"id":"uwf053a2nm53q"}},"quickpay_id":{"type":"string","x-stoplight":{"id":"r0bc492ukmjv0"},"description":"Oceanpayment生成的唯一的[Quickpay ID](/docs/payment/parameter#quickpay-id)"},"backUrl":{"type":"string","x-stoplight":{"id":"ps3zftqzwwdc6"},"description":"返回支付信息的网站URL地址"},"noticeUrl":{"type":"string","x-stoplight":{"id":"bszke93whiabb"},"description":"服务器回调URL地址，用于交易结果推送及其他业务状态推送\t"},"methods":{"type":"string","x-stoplight":{"id":"ub65ybnu0bio8"},"description":"支付方式\r\n- 传值请参考[支付方式名称](/docs/payment/methods/list)"},"order_number":{"type":"string","x-stoplight":{"id":"ceevdd8ahqkid"},"description":"网站订单号"},"order_currency":{"type":"string","x-stoplight":{"id":"13hhgw7bfl4p3"},"description":"订单号的交易币种\r\n- 采用国际标准[ISO 4217代码](/docs/resource/currency)"},"order_amount\t":{"type":"string","x-stoplight":{"id":"dm8gxzwn6uyy3"},"description":"订单号的交易金额\r\n- 最大支持小数点后2位数，如：1.00\r\n- 如果交易金额为0，不需要发送交易"},"billing_firstName":{"type":"string","x-stoplight":{"id":"gf5p2hcrl5ucb"},"description":"消费者的名"},"billing_lastName":{"type":"string","x-stoplight":{"id":"2hced93mgkvj8"},"description":"消费者的姓"},"billing_email":{"type":"string","x-stoplight":{"id":"5a9dnfltmh7d4"},"description":"消费者的邮箱"},"billing_phone":{"type":"string","x-stoplight":{"id":"ko7lezb6bcm3o"},"description":"消费者的电话"},"billing_country":{"type":"string","x-stoplight":{"id":"mtjapv9msit3i"},"description":"消费者的账单国家\r\n- 采用国际标准[ISO 3166代码](/docs/resource/country-code)"},"billing_state":{"type":"string","x-stoplight":{"id":"ii3txe7yp1o2m"},"description":"消费者的州（省、郡）\r\n- 采用国际标准[ISO 3166-2代码](/docs/resource/state-code)"},"billing_city":{"type":"string","x-stoplight":{"id":"hj6kf3jwaooy6"},"description":"消费者的城市"},"billing_address":{"type":"string","x-stoplight":{"id":"oua89lvngoo07"},"description":"消费者的详细地址"},"billing_zip":{"type":"string","x-stoplight":{"id":"l2yth5dz4gzmw"},"description":"消费者的邮编"},"billing_ip":{"type":"string","x-stoplight":{"id":"11o14x7p8ep6m"},"description":"消费者的ip地址\r\n- 由网站进行获取，如果获取到多个ip，则取第一个"},"productName":{"type":"string","x-stoplight":{"id":"66takso6apu7e"},"description":"产品名称，多个产品用英文,隔开"},"productNum":{"type":"string","x-stoplight":{"id":"9cthutifnzmlp"},"description":"产品数量，多个产品用英文,隔开"},"productSku":{"type":"string","x-stoplight":{"id":"f2uv6zsblsy58"},"description":"产品SKU，多个产品用英文,隔开"},"productPrice":{"type":"string","x-stoplight":{"id":"6nh10fvlzkzv3"},"description":"产品单价，多个产品用英文,隔开"},"ship_firstName":{"type":"string","x-stoplight":{"id":"g9hueojo2tu00"},"description":"收货人的名"},"ship_lastName":{"type":"string","x-stoplight":{"id":"iab7xagudi1ct"},"description":"收货人的姓"},"ship_email":{"type":"string","x-stoplight":{"id":"kyitnuf2g2x07"},"description":"收货人的邮箱"},"ship_phone":{"type":"string","x-stoplight":{"id":"w8s3i4mbkpktg"},"description":"收货人的电话"},"ship_country":{"type":"string","x-stoplight":{"id":"l30hv8jzyd78m"},"description":"收货人的账单国家\r\n- 采用国际标准ISO 3166代码"},"ship_state":{"type":"string","x-stoplight":{"id":"xpqsvaimitr22"},"description":"收货人的州（省、郡）\r\n- 采用国际标准ISO 3166-2代码"},"ship_city":{"type":"string","x-stoplight":{"id":"yas26s1v6v4ia"},"description":"收货人的城市"},"ship_addr":{"type":"string","x-stoplight":{"id":"hlo84qiqkrto3"},"description":"收货人的详细地址\t"},"ship_zip":{"type":"string","x-stoplight":{"id":"oor0gafqsbkm6"},"description":"收货人的邮编"},"order_notes":{"type":"string","x-stoplight":{"id":"v89fidvyix1pt"},"description":"订单备注信息，返回时则原样返回"},"service_mode":{"type":"string","x-stoplight":{"id":"ss78skmv2b8ve"},"description":"业务模式 \r\n- 参考[业务场景](/docs/subscripions/directpay#业务模式)进行传值"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses = {
+	{
+		"200": {
+			"description": "",
+			"content": {
+				"application/xml": {
+					"schema": {
+						"type": "object",
+						"properties": {
+							"notice_type": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "qs4wiz3c1ptx6"
+								},
+								"description": "通知类型 \r\n- 固定为：transaction"
+							},
+							"account": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "8al2h3m074gz6"
+								},
+								"description": "账户号\r\n-  由Oceanpayment技术支持提供"
+							},
+							"terminal": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "0dfq27ravp5jn"
+								},
+								"description": "终端号\r\n-  由Oceanpayment技术支持提供"
+							},
+							"signValue": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "t963z22rn03p2"
+								},
+								"description": "交易安全签名，用于验证交易的安全性。使用SHA256加密，明文加密结构：\r\n-  account+terminal+order_number+order_currency+order_amount+order_notes+card_number+payment_id+quickpay_id+payment_authType+payment_status+payment_details+payment_risk+secureCode "
+							},
+							"methods": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "t963z22rn03p2"
+								},
+								"description": "支付方式"
+							},
+							"order_number": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "8kcueyba54rwv"
+								},
+								"description": "网站订单号"
+							},
+							"pay_url": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "8kcueyba54rwv"
+								},
+								"description": "若返回有值，需要重定向打开，跳转至3D页面  \r\n- ● pay_url不为空时：则表示这笔交易需要进入3D校验，需要进行页面重定向向用户展示3D校验页面。当消费者验证完毕时，页面会进行浏览器跳转返回支付结果(返回依赖于backUrl，默认使用POST接收) \r\n- ● pay_url为空时：返回的xml即为交易结果"
+							},
+							"order_currency": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "eyt7n8enpkkh9"
+								},
+								"description": "订单号的交易币种"
+							},
+							"order_amount": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "j7us8zv89ehh9"
+								},
+								"description": "网站订单号\r\n-  网站订单号，区别于 payment_id"
+							},
+							"order_notes": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "6867mno7k8bys"
+								},
+								"description": "订单备注信息"
+							},
+
+							"card_country": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "ptnwevwmdrcr6"
+								},
+								"description": "卡属国家"
+							},
+							"card_number": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "li40ani2sq7l9"
+								},
+								"description": "持卡人的信用卡卡号"
+							},
+							"card_type": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "f08ygfjidbdmt"
+								},
+								"description": "卡种"
+							},
+							"payment_country": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "i9cwn8v7updzd"
+								},
+								"description": "消费者IP所在国家"
+							},
+							"payment_id": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "ag61w4xsfplyz"
+								},
+								"description": "支付ID，Oceanpayment的支付唯一单号"
+							},
+							"payment_authType": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "4eu6tov2xsduf"
+								},
+								"description": "该笔交易的类型\r\n- 0:该交易类型为‘Sale’一般交易\r\n- 1:该交易类型为‘预授权且非3D’交易\r\n- 2:该交易类型为‘3D且非预授权’交易\r\n- 3:该交易类型为‘3D且预授权’交易"
+							},
+							"payment_status": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "eh92gc43s0fum"
+								},
+								"description": "该笔交易的[结果状态](/docs/payment/status#支付状态说明)\r\n- -1:待处理\r\n- 0:支付失败\r\n- 1:支付成功"
+							},
+							"payment_details": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "1sy7mjrd5662b"
+								},
+								"description": "该笔交易的[支付详情](/docs/payment/status#响应代码)\r\n- 网站可以进行处理，在付款结果页面显示给消费者看"
+							},
+							"payment_solutions": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "kycptydply8ds"
+								},
+								"description": "付款失败后的[解决方法](/docs/payment/status#响应代码)\r\n- 网站可以进行处理，在付款结果页面显示给消费者看"
+							},
+							"payment_risk": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "1pf6x26aj75qf"
+								},
+								"description": "未通过的风控规则"
+							},
+							"payment_amount": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "rg17qtx5tk37b"
+								},
+								"description": "消费者实际付款金额"
+							},
+							"payment_exchangeRate": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "dbnn6necpe3sf"
+								},
+								"description": "汇率"
+							},
+							"auth_code": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "hrhu63zu21bon"
+								},
+								"description": "返回信用卡的授权码"
+							},
+							"pay_userId": {
+								"type": "string",
+								"x-stoplight": {
+									"id": "hbpdbyqf01b59"
+								},
+								"description": "用户ID"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+>
+  
+</StatusCodes>
+
+
+      
